@@ -1,0 +1,31 @@
+body {
+    background-image: url("./images/annapurna.jpg");
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+.a-button {
+    color: rgb(46, 45, 45);
+    padding: 10px;
+    transition: ease-in-out color .15s;
+}
+
+.a-button:hover {
+    color: rgb(78, 58, 2);
+    text-decoration: none;
+}
+
+.flex-equal>* {
+    -ms-flex: 1;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .flex-md-equal>* {
+        -ms-flex: 1;
+        flex: 1;
+    }
+}
