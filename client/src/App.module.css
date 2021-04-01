@@ -3,6 +3,10 @@ body {
     background-size: cover;
 }
 
+nav {
+    margin-bottom: 2%;
+  }
+
 a {
     text-decoration: none;
 }

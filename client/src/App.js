@@ -1,15 +1,39 @@
-import style from './App.module.css';
+import { Component } from 'react';
+
+import * as trekService from './services/trekService';
+
 import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 import Home from './components/Home/Home';
 
-function App() {
-  return (
-    <div className={style.app}>
-      <Header />
+import style from './App.module.css';
 
-      <Home />
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      treks: []
+    }
+  }
+
+  componentDidMount() {
+    trekService.getAll()
+      .then(treks => {
+        this.setState({treks})
+      });
+  }
+
+  render() {
+    return (
+      <div className={style.app}>
+        <Header />
+        <Home />
+
+        <Main treks={this.state.treks} />
+      </div>
+    );
+  }
 }
 
 export default App;
