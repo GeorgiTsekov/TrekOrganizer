@@ -1,9 +1,7 @@
 @import 'https://use.fontawesome.com/releases/v5.15.2/css/all.css';
 .header {
     background-color: rgba(27, 27, 27, 0.904);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-radius: 8px;
-    backdrop-filter: saturate(180%) blur(20px);
 }
 
 nav {

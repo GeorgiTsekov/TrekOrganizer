@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ClientApp\src\Images\mountainLogo.png">
+    <None Update="ClientApp\public\images\mountainLogo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

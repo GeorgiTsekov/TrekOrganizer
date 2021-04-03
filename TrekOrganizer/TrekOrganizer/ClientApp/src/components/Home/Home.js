@@ -16,7 +16,7 @@ export class Home extends Component {
                     <p className="lead">If you find enough supporters, we will organize everything for you!</p>
                 </div>
                 <div className="col-md-5">
-                    <img className="home-picture" src="https://i.pinimg.com/originals/b1/5e/2d/b15e2d7d7aad22ba98e7e4ff5c973515.jpg" />
+                    <img className="home-picture" src="./images/mountainLogo.png" />
                 </div>
             </div>
         );

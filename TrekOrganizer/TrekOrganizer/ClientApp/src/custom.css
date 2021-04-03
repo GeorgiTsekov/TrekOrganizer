@@ -1,14 +1,37 @@
 /* Provide sufficient contrast against white background */
+
+body {
+    background: url('annapurna.jpg');
+    background-size: cover;
+}
+
+nav {
+    margin-bottom: 2%;
+}
+
 a {
-  color: #0366d6;
+    text-decoration: none;
 }
 
-code {
-  color: #E01A76;
+.a-button {
+    color: rgb(46, 45, 45);
+    padding: 10px;
+    transition: ease-in-out color .15s;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    .a-button:hover {
+        color: rgb(78, 58, 2);
+        text-decoration: none;
+    }
+
+.flex-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .flex-md-equal > * {
+        -ms-flex: 1;
+        flex: 1;
+    }
 }
