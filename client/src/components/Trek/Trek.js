@@ -1,19 +1,22 @@
-import './Trek.css'
+import './Trek.css';
+
 
 const Trek = ({
     content,
     imageURL,
-    organizer
+    category,
 }) => {
     return (
-        <div class="trek">
-            <a href="#" class="card overflow-hidden treksPlaceholder trek-details">
-                <div class="card-body">
-                    <p class="card-text">
+        <div className="trek">
+            <a href="#" className="card overflow-hidden treksPlaceholder trek-details">
+                <div className="card-body">
+                    <p className="card-text">
                         {content}
+                    </p><p className="card-text">
+                        {category}
                     </p>
                 </div>
-                <img class="card-image" src={imageURL} alt="Card image cap"></img>
+                <img className="card-image" src={imageURL} alt="Card image cap"></img>
             </a>
         </div>
     );

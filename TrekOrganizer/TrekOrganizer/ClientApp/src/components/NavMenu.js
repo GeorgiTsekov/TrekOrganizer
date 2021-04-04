@@ -27,8 +27,6 @@ export class NavMenu extends Component {
             <header>
                 <Navbar className="header" light>
                     <Container>
-                        <NavbarBrand tag={Link} to="/">TrekOrganizer</NavbarBrand>
-                        <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="nav container">
                                 <NavItem>
@@ -42,6 +40,7 @@ export class NavMenu extends Component {
                                 </NavItem>
                                 <LoginMenu>
                                 </LoginMenu>
+                                <NavbarToggler onClick={this.toggleNavbar} className="py-2-btn" />
                             </ul>
                         </Collapse>
                     </Container>

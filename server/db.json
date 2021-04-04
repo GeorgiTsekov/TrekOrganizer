@@ -2,6 +2,7 @@
     "treks": [
         {
             "id": 1,
+            "category": "Hiking",
             "createdOn": "29/03/2021",
             "content": "5 peаks in Rila mountain",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
@@ -14,6 +15,7 @@
         },
         {
             "id": 2,
+            "category": "Hiking",
             "createdOn": "28/03/2021",
             "content": "Cherni Vrah",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
@@ -27,6 +29,7 @@
         {
             "id": 3,
             "createdOn": "31/03/2021",
+            "category": "Mountain Walking",
             "content": "Kom-Emine",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "21/04/2021",
@@ -39,6 +42,99 @@
         {
             "id": 4,
             "createdOn": "24/02/2021",
+            "category": "Mountain Biking",
+            "content": "Vitosha100",
+            "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
+            "startDate": "29/04/2021",
+            "endDate": "29/04/2021",
+            "imageURL": "https://goguide.bg/upload/places/inner/152293630428619056_2033475870275485_5394651189106647504_o.jpg",
+            "likes": 0,
+            "organizer": "Tosho Toshev",
+            "uid": "rfdf34234fas"
+        }
+        ,
+        {
+            "id": 5,
+            "createdOn": "24/02/2021",
+            "category": "Mountain Lift",
+            "content": "Vitosha100",
+            "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
+            "startDate": "29/04/2021",
+            "endDate": "29/04/2021",
+            "imageURL": "https://goguide.bg/upload/places/inner/152293630428619056_2033475870275485_5394651189106647504_o.jpg",
+            "likes": 0,
+            "organizer": "Tosho Toshev",
+            "uid": "rfdf34234fas"
+        },
+        {
+            "id": 6,
+            "createdOn": "24/02/2021",
+            "category": "Ski, Snowboard",
+            "content": "Vitosha100",
+            "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
+            "startDate": "29/04/2021",
+            "endDate": "29/04/2021",
+            "imageURL": "https://goguide.bg/upload/places/inner/152293630428619056_2033475870275485_5394651189106647504_o.jpg",
+            "likes": 0,
+            "organizer": "Tosho Toshev",
+            "uid": "rfdf34234fas"
+        },
+        {
+            "id": 7,
+            "createdOn": "24/02/2021",
+            "category": "Raft, Canoe, Kayak",
+            "content": "Vitosha100",
+            "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
+            "startDate": "29/04/2021",
+            "endDate": "29/04/2021",
+            "imageURL": "https://goguide.bg/upload/places/inner/152293630428619056_2033475870275485_5394651189106647504_o.jpg",
+            "likes": 0,
+            "organizer": "Tosho Toshev",
+            "uid": "rfdf34234fas"
+        },
+        {
+            "id": 8,
+            "createdOn": "24/02/2021",
+            "category": "Multy Activity",
+            "content": "Vitosha100",
+            "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
+            "startDate": "29/04/2021",
+            "endDate": "29/04/2021",
+            "imageURL": "https://goguide.bg/upload/places/inner/152293630428619056_2033475870275485_5394651189106647504_o.jpg",
+            "likes": 0,
+            "organizer": "Tosho Toshev",
+            "uid": "rfdf34234fas"
+        },
+        {
+            "id": 9,
+            "createdOn": "24/02/2021",
+            "category": "Other Treks",
+            "content": "Vitosha100",
+            "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
+            "startDate": "29/04/2021",
+            "endDate": "29/04/2021",
+            "imageURL": "https://goguide.bg/upload/places/inner/152293630428619056_2033475870275485_5394651189106647504_o.jpg",
+            "likes": 0,
+            "organizer": "Tosho Toshev",
+            "uid": "rfdf34234fas"
+        },
+        {
+            "id": 10,
+            "createdOn": "24/02/2021",
+            "category": "Mountain Running",
+            "content": "Vitosha100",
+            "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
+            "startDate": "29/04/2021",
+            "endDate": "29/04/2021",
+            "imageURL": "https://goguide.bg/upload/places/inner/152293630428619056_2033475870275485_5394651189106647504_o.jpg",
+            "likes": 0,
+            "organizer": "Tosho Toshev",
+            "uid": "rfdf34234fas"
+        },
+        {
+            "id": 11,
+            "createdOn": "24/02/2021",
+            "category": "Mountain Running",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",

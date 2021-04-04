@@ -39,10 +39,15 @@ nav {
     transition: ease-in-out color .15s;
 }
 
-    .header .py-2 i {
-        color: yellow;
-        transition: ease-in-out color .15s;
-    }
+.header .py-2 i {
+    color: yellow;
+    transition: ease-in-out color .15s;
+}
+
+span {
+    color: yellow;
+    transition: ease-in-out color .15s;
+}
 
     .header .py-2 :hover {
         color: #fff;
@@ -53,3 +58,5 @@ nav {
         color: #fff;
         text-decoration: none;
     }
+
+
