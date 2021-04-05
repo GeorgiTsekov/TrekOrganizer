@@ -1,14 +1,15 @@
 import './Trek.css';
-
+import { Link}  from 'react-router-dom';
 
 const Trek = ({
     content,
     imageURL,
     category,
+    id,
 }) => {
     return (
         <div className="trek">
-            <a href="#" className="card overflow-hidden treksPlaceholder trek-details">
+            <Link to={`/treks/details/${id}`} className="card overflow-hidden treksPlaceholder trek-details">
                 <div className="card-body">
                     <p className="card-text">
                         {content}
@@ -17,7 +18,7 @@ const Trek = ({
                     </p>
                 </div>
                 <img className="card-image" src={imageURL} alt="Card image cap"></img>
-            </a>
+            </Link>
         </div>
     );
 }

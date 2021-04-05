@@ -1,13 +1,15 @@
-import api from './api';
+const url = 'http://localhost:5000/treks';
 
 export const getAll = (category = '') => {
-    let currentCategory = category;
+    let currentCategory = (category && category != 'All') ? `?category=${category}` : '';
 
-    if (`?category=${category}` && category != 'All') {
-        currentCategory = '';
-    }
-
-    return fetch(`http://localhost:5000/treks${currentCategory}`)
+    return fetch(url + currentCategory)
         .then(res => res.json())
         .catch(error => console.log(error));
-};
+}
+
+export const getOne = (trekId) => {
+    return fetch(`${url}/${trekId}`)
+        .then(res => res.json())
+        .catch(error => console.log(error));
+}

@@ -29,7 +29,7 @@
         {
             "id": 3,
             "createdOn": "31/03/2021",
-            "category": "Mountain Walking",
+            "category": "Walking",
             "content": "Kom-Emine",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "21/04/2021",
@@ -42,7 +42,7 @@
         {
             "id": 4,
             "createdOn": "24/02/2021",
-            "category": "Mountain Biking",
+            "category": "Biking",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",
@@ -56,7 +56,7 @@
         {
             "id": 5,
             "createdOn": "24/02/2021",
-            "category": "Mountain Lift",
+            "category": "Lift",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",
@@ -69,7 +69,7 @@
         {
             "id": 6,
             "createdOn": "24/02/2021",
-            "category": "Ski, Snowboard",
+            "category": "Skiing",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",
@@ -82,7 +82,7 @@
         {
             "id": 7,
             "createdOn": "24/02/2021",
-            "category": "Raft, Canoe, Kayak",
+            "category": "Rafting",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",
@@ -95,7 +95,7 @@
         {
             "id": 8,
             "createdOn": "24/02/2021",
-            "category": "Multy Activity",
+            "category": "Other",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",
@@ -108,7 +108,7 @@
         {
             "id": 9,
             "createdOn": "24/02/2021",
-            "category": "Other Treks",
+            "category": "Other",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",
@@ -121,7 +121,7 @@
         {
             "id": 10,
             "createdOn": "24/02/2021",
-            "category": "Mountain Running",
+            "category": "Running",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",
@@ -134,7 +134,7 @@
         {
             "id": 11,
             "createdOn": "24/02/2021",
-            "category": "Mountain Running",
+            "category": "Running",
             "content": "Vitosha100",
             "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
             "startDate": "29/04/2021",

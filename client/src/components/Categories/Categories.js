@@ -1,5 +1,7 @@
 import { Component } from 'react';
-import * as trekService from '../../services/trekService'
+import * as trekService from '../../services/trekService';
+
+import './Categories.css'
 
 import CategoryNavigation from './CategoryNavigation/CategoryNavigation';
 import Trek from '../Trek/Trek'
@@ -25,7 +27,7 @@ class Categories extends Component {
         if (prevProps.match.params.category == category) {
             return;
         }
-        
+
         trekService.getAll(category)
             .then(res => this.setState({ treks: res, currentCategory: category }));
     }
@@ -41,6 +43,7 @@ class Categories extends Component {
                         {this.state.treks.map(x =>
                             <Trek
                                 key={x.id}
+                                id={x.id}
                                 category={x.category}
                                 content={x.content}
                                 createdOn={x.createdOn}
