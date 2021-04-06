@@ -2,16 +2,11 @@
   "treks": [
     {
       "id": 1,
-      "location": "Hiking",
-      "createdOn": "29/03/2021",
-      "content": "5 peаks in Rila mountain",
-      "description": "5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain 5 peаks in Rila mountain",
+      "location": "Vitosha 400",
       "startDate": "29/04/2021",
-      "endDate": "02/05/2021",
-      "imageURL": "https://cache1.24chasa.bg/Images/Cache/611/Image_8875611_126.jpg",
-      "likes": 0,
-      "organizer": "Pesho Peshev",
-      "uid": "rfdf34234fas"
+      "endDate": "12.02.2021",
+      "description": "good one 111",
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sofia-vitosha-kempinski.jpg"
     },
     {
       "id": 2,

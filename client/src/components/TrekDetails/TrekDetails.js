@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as trekService from '../../services/trekService';
 import './TrekDetails.css';
 
@@ -25,9 +26,9 @@ const TrekDetails = ({
                     <p className="infoType">Organizer: <large>{trek.organizer}</large></p>
                 </div>
                 <div className="buttons-together">
-                    <a className="a-button" href="#">Edit the trek</a>
-                    <a className="a-button" href="#">Close the trek</a>
-                    <a className="a-button" href="#">Like</a>
+                    <Link className="a-button" to={`/treks/details/${trek.id}/edit`}>Edit the trek</Link>
+                    <Link className="a-button" to="#">Close the trek</Link>
+                    <Link className="a-button" to="#">Like</Link>
                 </div>
             </div>
         </div>

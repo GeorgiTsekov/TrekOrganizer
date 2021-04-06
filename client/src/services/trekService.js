@@ -31,3 +31,21 @@ export const create = (location, startDate, endDate, description, imageURL) => {
         body: JSON.stringify(trek)
     });
 }
+
+export const edit = (trekId, trek) => {
+    // let trek = {
+    //     location,
+    //     startDate,
+    //     endDate,
+    //     description,
+    //     imageURL,
+    // }
+    // location, startDate, endDate, description, imageURL
+    return fetch(`${url}/${trekId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(trek)
+    });
+}
