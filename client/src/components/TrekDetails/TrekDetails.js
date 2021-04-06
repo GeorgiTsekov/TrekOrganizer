@@ -15,7 +15,7 @@ const TrekDetails = ({
             <div className="col-md-12 text-center overflow-hidden">
                 <img className="details-img" src={trek.imageURL} />
                 <div className="overflow-hidden my-3 p-3">
-                    <h2 className="display-5">{trek.content}</h2>
+                    <h2 className="display-5">{trek.location}</h2>
                     <p className="infoType">Description:</p>
                     <p className="trek-description">{trek.description}</p>
                     <p className="infoType">createdOn: <large>{trek.createdOn}</large></p>

@@ -1,15 +1,17 @@
-import style from './Header.module.css'
+import { Link } from 'react-router-dom';
+import style from './Header.module.css';
 
 const Header = () => {
     return (
         <nav className={style.header}>
             <div className={style.container}>
-                <a className="py-2" href="#"><i class="fas fa-hiking"></i></a>
-                <a className="py-2 d-none d-md-inline-block" href="#">Request Trek</a>
-                <a className="py-2 d-none d-md-inline-block" href="#">Hello, username</a>
-                <a className="py-2 d-none d-md-inline-block" href="#">Logout</a>
-                <a className="py-2 d-none d-md-inline-block" href="#">Login</a>
-                <a className="py-2 d-none d-md-inline-block" href="#">Register</a>
+                <Link className="py-2" to="/"><i class="fas fa-hiking"></i></Link>
+                <Link className="py-2 d-none d-md-inline-block" to="/categories/All">Request Trek</Link>
+                <Link className="py-2 d-none d-md-inline-block" to="/treks/create">Create Trek</Link>
+                <Link className="py-2 d-none d-md-inline-block" to="#">Hello, username</Link>
+                <Link className="py-2 d-none d-md-inline-block" to="#">Logout</Link>
+                <Link className="py-2 d-none d-md-inline-block" to="#">Login</Link>
+                <Link className="py-2 d-none d-md-inline-block" to="#">Register</Link>
             </div>
         </nav>
     );

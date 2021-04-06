@@ -13,3 +13,21 @@ export const getOne = (trekId) => {
         .then(res => res.json())
         .catch(error => console.log(error));
 }
+
+export const create = (location, startDate, endDate, description, imageURL) => {
+    let trek = {
+        location,
+        startDate,
+        endDate,
+        description,
+        imageURL,
+    }
+
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(trek)
+    });
+}

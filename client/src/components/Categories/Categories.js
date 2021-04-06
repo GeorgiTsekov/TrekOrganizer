@@ -45,7 +45,7 @@ class Categories extends Component {
                                 key={x.id}
                                 id={x.id}
                                 category={x.category}
-                                content={x.content}
+                                location={x.location}
                                 createdOn={x.createdOn}
                                 description={x.description}
                                 startDate={x.startDate}

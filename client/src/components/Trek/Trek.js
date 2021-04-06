@@ -2,7 +2,7 @@ import './Trek.css';
 import { Link}  from 'react-router-dom';
 
 const Trek = ({
-    content,
+    location,
     imageURL,
     category,
     id,
@@ -12,7 +12,7 @@ const Trek = ({
             <Link to={`/treks/details/${id}`} className="card overflow-hidden treksPlaceholder trek-details">
                 <div className="card-body">
                     <p className="card-text">
-                        {content}
+                        {location}
                     </p><p className="card-text">
                         {category}
                     </p>
