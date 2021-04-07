@@ -7,12 +7,12 @@ const CreateTrek = ({
     const onCreateTrekSubmitHandler = (e) => {
         e.preventDefault();
 
-        const {location, startDate, endDate, description, imageURL} = e.target;
+        const { category, location, startDate, endDate, description, imageURL } = e.target;
 
-        trekService.create(location.value, startDate.value, endDate.value, description.value, imageURL.value)
-        .then(() => {
-            history.push('/categories/All');
-        });
+        trekService.create(category.value, location.value, startDate.value, endDate.value, description.value, imageURL.value)
+            .then(() => {
+                history.push('/categories/All');
+            });
     }
 
     return (
@@ -21,7 +21,19 @@ const CreateTrek = ({
                 <h1 className="h3 mb-3 font-weight-normal">Wish for a new adventure!</h1>
                 <p>Fill up the following information!</p>
             </div>
-
+            <div className="form-label-group">
+                <select className="form-control" name="category">
+                    <option></option>
+                    <option>Hiking</option>
+                    <option>Walking</option>
+                    <option>Running</option>
+                    <option>Biking</option>
+                    <option>Lift</option>
+                    <option>Skiing</option>
+                    <option>Rafting</option>
+                    <option>Other</option>
+                </select>
+            </div>
             <div className="form-label-group">
                 <input type="text" name="location" className="form-control" placeholder="Location" required="" autofocus="" />
             </div>

@@ -14,13 +14,17 @@ export const getOne = (trekId) => {
         .catch(error => console.log(error));
 }
 
-export const create = (location, startDate, endDate, description, imageURL) => {
+export const create = (category, location, startDate, endDate, description, imageURL) => {
     let trek = {
+        category,
         location,
         startDate,
         endDate,
         description,
         imageURL,
+        likes: 0,
+        organizer: 'Pesho',
+        createdOn: Date.UTC(),
     }
 
     return fetch(url, {
@@ -33,19 +37,21 @@ export const create = (location, startDate, endDate, description, imageURL) => {
 }
 
 export const edit = (trekId, trek) => {
-    // let trek = {
-    //     location,
-    //     startDate,
-    //     endDate,
-    //     description,
-    //     imageURL,
-    // }
-    // location, startDate, endDate, description, imageURL
     return fetch(`${url}/${trekId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(trek)
+    });
+}
+
+export const like = (trekId, incrementedLikes) => {
+    return fetch(`${url}/${trekId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({likes: incrementedLikes})
     });
 }

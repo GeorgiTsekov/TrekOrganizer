@@ -18,16 +18,29 @@ const EditTrek = ({
     const onEditTrekSubmitHandler = (e) => {
         e.preventDefault();
         
-        const {location, startDate, endDate, description, imageURL} = e.target;
-        let updatedTrek = {...trek, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageURL: imageURL.value};
+        const {category, location, startDate, endDate, description, imageURL} = e.target;
+        let updatedTrek = {...trek, category: category.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageURL: imageURL.value};
         trekService.edit(match.params.trekId, updatedTrek)
             .then(() => {
                 history.push(`/treks/details/${trekId}`);
-            })
+            });
     }
 
     return (
         <form className="create-trek" onSubmit={onEditTrekSubmitHandler}>
+            <div className="form-label-group">
+                <select className="form-control" name="category">
+                    <option>{trek.category}</option>
+                    <option>Hiking</option>
+                    <option>Walking</option>
+                    <option>Running</option>
+                    <option>Biking</option>
+                    <option>Lift</option>
+                    <option>Skiing</option>
+                    <option>Rafting</option>
+                    <option>Other</option>
+                </select>
+            </div>
 
             <div className="form-label-group">
                 <input type="text" name="location" className="form-control" placeholder="Location" required="" autofocus="" defaultValue={trek.location} />

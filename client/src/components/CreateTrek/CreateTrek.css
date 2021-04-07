@@ -19,7 +19,7 @@
     box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.712);
 }
 
-input.form-control {
+input.form-control, select.form-control {
     display: flex;
     flex-direction: column;
     width: 50%;

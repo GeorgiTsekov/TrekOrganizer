@@ -19,6 +19,7 @@ class App extends Component {
         <Header />
 
         <Switch>
+          
           <Route path="/" exact component={Home}></Route>
           <Route path="/categories/:category" component={Categories}></Route>
           <Route path="/treks/details/:trekId" exact component={TrekDetails}></Route>
