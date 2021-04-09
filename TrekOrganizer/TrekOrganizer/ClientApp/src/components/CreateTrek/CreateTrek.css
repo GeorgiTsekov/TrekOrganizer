@@ -1,0 +1,52 @@
+.create-trek {
+    background-color: rgba(255, 255, 255, 0.534);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.712);
+}
+
+.single-trek-details {
+    background-color: rgba(255, 255, 255, 0.849);
+    padding: 2%;
+    margin: auto;
+    max-width: 80%;
+    border: solid;
+    border-radius: 1rem;
+    border-color: rgb(241, 179, 6);
+    box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.712);
+}
+
+input.form-control, select.form-control {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.479);
+    padding: 2%;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2%;
+    border: solid;
+    border-radius: 1rem;
+    border-color: rgb(241, 179, 6);
+    box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.712);
+    text-align: left;
+}
+
+textarea.form-control {
+    display: flex;
+    flex-direction: column;
+    width: 50.23%;
+    margin: 0 auto;
+    resize: none;
+    margin-bottom: 10px;
+    height: 20vh;
+}

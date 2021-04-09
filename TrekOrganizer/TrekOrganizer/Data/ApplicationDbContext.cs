@@ -17,5 +17,9 @@ namespace TrekOrganizer.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+
+        public DbSet<Trek> Treks { get; set; }
+
+        //public DbSet<Category> Categories { get; set; }
     }
 }

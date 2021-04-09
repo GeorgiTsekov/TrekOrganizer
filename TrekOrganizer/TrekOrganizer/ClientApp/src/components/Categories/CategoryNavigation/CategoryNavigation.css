@@ -1,0 +1,25 @@
+.categories-navbar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 5px 25px 5px 15px;
+    margin-left: -5px;
+}
+
+.nav-link-selected {
+    color: yellow;
+    transition: ease-in-out color .15s;
+    font-weight: bold;
+    background-color: green;
+    padding: 5px 10px 5px 10px;
+    border-radius: 8px;
+}
+
+.nav-link-selected:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.active {
+    background-color: lightskyblue;
+}

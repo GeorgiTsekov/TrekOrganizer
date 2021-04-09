@@ -1,0 +1,61 @@
+.treksPlaceholder {
+    background-color: rgba(255, 255, 255, 0.849);
+    flex: 0 1 50%;
+    margin: 2%;
+    max-width: 100%;
+    border: solid;
+    border-color: rgb(241, 179, 6);
+    box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.712);
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+@media screen and (max-width:900px) {
+    .treksPlaceholder {
+        flex: 0 1 95%;
+    }
+}
+
+.trek-description {
+    font-style: italic;
+}
+
+.trek-details {
+    display: block;
+    color: rgb(0, 0, 0);
+    width: 90%;
+    margin: 1.5rem auto 48px auto;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 18px;
+    /* padding: 0.5rem 0;   */
+    font-weight: bold;
+}
+
+.card-image {
+    height: 500px;
+    width: 900px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+@media screen and (max-width:900px) {
+    .card-image {
+        height: 200px;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+}
+
+.a-button {
+    color: rgb(46, 45, 45);
+    padding: 10px;
+    border-radius: 8px;
+    transition: ease-in-out color .15s;
+}
+
+.a-button:hover {
+    color: gray;
+    text-decoration: none;
+}
