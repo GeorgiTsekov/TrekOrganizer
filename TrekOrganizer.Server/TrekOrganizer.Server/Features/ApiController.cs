@@ -1,4 +1,4 @@
-﻿namespace TrekOrganizer.Server.Controllers
+﻿namespace TrekOrganizer.Server.Features
 {
     using Microsoft.AspNetCore.Mvc;
 

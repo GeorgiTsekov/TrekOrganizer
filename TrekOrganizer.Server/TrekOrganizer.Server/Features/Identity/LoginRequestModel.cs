@@ -1,4 +1,4 @@
-﻿namespace TrekOrganizer.Server.Models.Identity
+﻿namespace TrekOrganizer.Server.Features.Identity
 {
     using System.ComponentModel.DataAnnotations;
 

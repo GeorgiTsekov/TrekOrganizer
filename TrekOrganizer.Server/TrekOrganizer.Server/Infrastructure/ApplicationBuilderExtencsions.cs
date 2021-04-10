@@ -7,6 +7,18 @@ namespace TrekOrganizer.Server.Infrastructure
 {
     public static class ApplicationBuilderExtencsions
     {
+        public static IApplicationBuilder UseSwaggerUI(this IApplicationBuilder app)
+        {
+            app
+                .UseSwagger()
+                .UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "My TrekOrganizer API");
+                    options.RoutePrefix = string.Empty;
+                });
+
+            return app;
+        }
         public static void ApplyMigrations(this IApplicationBuilder app)
         {
             using var services = app.ApplicationServices.CreateScope();
