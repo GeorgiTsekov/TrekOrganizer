@@ -3,6 +3,7 @@
     using Infrastructure;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using System.Collections;
     using System.Threading.Tasks;
 
     public class TreksController : ApiController
@@ -13,6 +14,19 @@
         {
             this.trekService = trekService;
         }
+
+        [HttpGet]
+        public async Task<IEnumerable> ByCategory(string categoryName)
+        {
+            return await this.trekService.ByCategory(categoryName);
+        }
+
+        //[Authorize]
+        //[HttpGet]
+        //public async Task<IEnumerable> All()
+        //{
+        //    return await this.trekService.All();
+        //}
 
         [Authorize]
         [HttpPost]

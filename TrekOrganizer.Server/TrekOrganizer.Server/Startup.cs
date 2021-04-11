@@ -14,15 +14,13 @@ namespace TrekOrganizer.Server
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {
-            services
+            => services
                 .AddDatabase(this.Configuration)
                 .AddIdentity()
                 .AddJwtAuthentication(services.GetApplicationSettings(this.Configuration))
                 .AddApplicationServices()
                 .AddSwagger()
                 .AddControllers();
-        }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -34,10 +32,10 @@ namespace TrekOrganizer.Server
             app
                 .UseSwaggerUI()
                 .UseRouting()
-                .UseCors(option => option
+                .UseCors(options => options
                     .AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader())
+                    .AllowAnyHeader()
+                    .AllowAnyMethod())
                 .UseAuthentication()
                 .UseAuthorization()
                 .UseEndpoints(endpoints =>

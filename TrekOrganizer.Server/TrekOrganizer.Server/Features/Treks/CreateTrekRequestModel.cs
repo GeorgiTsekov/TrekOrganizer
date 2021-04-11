@@ -1,6 +1,5 @@
 ﻿namespace TrekOrganizer.Server.Features.Treks
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using static Data.Validation.Trek;
 
@@ -23,10 +22,7 @@
         [Required]
         public string EndDate { get; set; }
 
-        [Range(1, int.MaxValue)]
-        [Display(Name = "Category")]
+        [Range(1, 8)]
         public int CategoryId { get; set; }
-
-        public IEnumerable<CategoryDropDownModel> Categories { get; set; }
     }
 }

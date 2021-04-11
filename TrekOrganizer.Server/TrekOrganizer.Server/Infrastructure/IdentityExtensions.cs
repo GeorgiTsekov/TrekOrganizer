@@ -6,8 +6,9 @@
     public static class IdentityExtensions
     {
         public static string GetId(this ClaimsPrincipal user)
-            => user.Claims
-                .FirstOrDefault(t => t.Type == ClaimTypes.NameIdentifier)
+            => user
+                .Claims
+                .FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)
                 ?.Value;
     }
 }

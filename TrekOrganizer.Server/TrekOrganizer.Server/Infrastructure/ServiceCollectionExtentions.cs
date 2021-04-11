@@ -27,13 +27,9 @@
         public static IServiceCollection AddDatabase(
             this IServiceCollection services,
             IConfiguration configuration)
-        {
-            services
+            => services
                 .AddDbContext<TrekOrganizerDbContext>(options => options
                     .UseSqlServer(configuration.GetDefaultConnectionString()));
-
-            return services;
-        }
 
         public static IServiceCollection AddIdentity(this IServiceCollection services)
         {

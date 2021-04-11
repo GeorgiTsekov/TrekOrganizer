@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using TrekOrganizer.Server.Data;
-
-namespace TrekOrganizer.Server.Infrastructure
+﻿namespace TrekOrganizer.Server.Infrastructure
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.DependencyInjection;
+    using Data;
+
     public static class ApplicationBuilderExtencsions
     {
         public static IApplicationBuilder UseSwaggerUI(this IApplicationBuilder app)

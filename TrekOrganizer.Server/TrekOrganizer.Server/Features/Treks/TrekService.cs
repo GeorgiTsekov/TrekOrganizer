@@ -3,14 +3,17 @@
     using System.Threading.Tasks;
     using Data.Models;
     using Data;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
 
     public class TrekService : ITrekService
     {
-        private readonly TrekOrganizerDbContext db;
+        private readonly TrekOrganizerDbContext data;
 
-        public TrekService(TrekOrganizerDbContext db)
+        public TrekService(TrekOrganizerDbContext data)
         {
-            this.db = db;
+            this.data = data;
         }
 
         public async Task<int> Create(string location, string description, string imageUrl, string startDate, string endDate, int categoryId, string userId)
@@ -26,11 +29,30 @@
                 UserId = userId,
             };
 
-            this.db.Add(trek);
+            this.data.Add(trek);
 
-            await this.db.SaveChangesAsync();
+            await this.data.SaveChangesAsync();
 
             return trek.Id;
+        }
+
+        public async Task<IEnumerable<TrekListingResponseModel>> ByCategory(string categoryName)
+        {
+            var categoryId = this.data.Categories.FirstOrDefault(c => c.Name == categoryName).Id;
+
+            var treksByCategory = this.data
+                .Treks
+                .Where(t => t.CategoryId == categoryId)
+                .Select(t => new TrekListingResponseModel
+                {
+                    Id = t.Id,
+                    Location = t.Location,
+                    CategoryName = categoryName,
+                    ImageUrl = t.ImageUrl
+                })
+                .ToListAsync();
+
+            return await treksByCategory;
         }
     }
 }
