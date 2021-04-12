@@ -23,7 +23,7 @@ const TrekDetails = ({
     return (
         <div className="trek-details">
             <div className="card overflow-hidden treksPlaceholder trek-details">
-                <img className="card-image" src={trek.imageURL} />
+                <img className="card-image" src={trek.imageUrl} />
                 <div className="overflow-hidden my-3 p-3">
                     <h2 className="display-5">{trek.location}</h2>
                     <p className="infoType">Description:</p>

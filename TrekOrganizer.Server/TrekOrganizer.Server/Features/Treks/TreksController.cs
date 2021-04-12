@@ -20,17 +20,18 @@
 
         [Authorize]
         [HttpGet]
+        [Route("categories")]
         public async Task<IEnumerable> ByCategory(string categoryName)
         {
             return await this.trekService.ByCategory(categoryName);
         }
 
-        //[Authorize]
-        //[HttpGet]
-        //public async Task<IEnumerable> All()
-        //{
-        //    return await this.trekService.All();
-        //}
+        [Authorize]
+        [HttpGet]
+        public async Task<IEnumerable> All()
+        {
+            return await this.trekService.All();
+        }
 
         [Authorize]
         [HttpGet]

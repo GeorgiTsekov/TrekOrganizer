@@ -3,7 +3,7 @@ import { Link}  from 'react-router-dom';
 
 const Trek = ({
     location,
-    imageURL,
+    imageUrl,
     category,
     id,
 }) => {
@@ -17,7 +17,7 @@ const Trek = ({
                         {category}
                     </p>
                 </div>
-                <img className="card-image" src={imageURL} alt="Card image cap"></img>
+                <img className="card-image" src={imageUrl} alt="Card image cap"></img>
             </Link>
         </div>
     );

@@ -7,9 +7,9 @@ const CreateTrek = ({
     const onCreateTrekSubmitHandler = (e) => {
         e.preventDefault();
 
-        const { category, location, startDate, endDate, description, imageURL } = e.target;
+        const { categoryName, location, startDate, endDate, description, imageURL } = e.target;
 
-        trekService.create(category.value, location.value, startDate.value, endDate.value, description.value, imageURL.value)
+        trekService.create(categoryName.value, location.value, startDate.value, endDate.value, description.value, imageURL.value)
             .then(() => {
                 history.push('/categories/All');
             });
@@ -22,7 +22,7 @@ const CreateTrek = ({
                 <p>Fill up the following information!</p>
             </div>
             <div className="form-label-group">
-                <select className="form-control" name="category">
+                <select className="form-control" name="categoryName">
                     <option></option>
                     <option>Hiking</option>
                     <option>Walking</option>

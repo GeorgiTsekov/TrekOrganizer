@@ -18,8 +18,8 @@ const EditTrek = ({
     const onEditTrekSubmitHandler = (e) => {
         e.preventDefault();
         
-        const {category, location, startDate, endDate, description, imageURL} = e.target;
-        let updatedTrek = {...trek, category: category.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageURL: imageURL.value};
+        const {category, location, startDate, endDate, description, imageUrl} = e.target;
+        let updatedTrek = {...trek, category: category.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageUrl: imageUrl.value};
         trekService.edit(match.params.trekId, updatedTrek)
             .then(() => {
                 history.push(`/treks/details/${trekId}`);
@@ -59,7 +59,7 @@ const EditTrek = ({
             </div>
 
             <div className="form-label-group">
-                <input type="text" name="imageURL" className="form-control" placeholder="Image" required="" autofocus="" defaultValue={trek.imageURL} />
+                <input type="text" name="imageUrl" className="form-control" placeholder="Image" required="" autofocus="" defaultValue={trek.imageUrl} />
             </div>
 
             <button className="btn btn-lg btn-dark btn-block">Edit the trek</button>

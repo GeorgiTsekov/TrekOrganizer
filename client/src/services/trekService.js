@@ -1,4 +1,4 @@
-const url = 'http://localhost:5000/treks';
+const url = 'https://localhost:44385/treks';
 
 export const getAll = (category = '') => {
     let currentCategory = (category && category != 'All') ? `?category=${category}` : '';
@@ -14,14 +14,14 @@ export const getOne = (trekId) => {
         .catch(error => console.log(error));
 }
 
-export const create = (category, location, startDate, endDate, description, imageURL) => {
+export const create = (category, location, startDate, endDate, description, imageUrl) => {
     let trek = {
         category,
         location,
         startDate,
         endDate,
         description,
-        imageURL,
+        imageUrl,
         likes: 0,
         organizer: 'Pesho',
         createdOn: Date.UTC(),

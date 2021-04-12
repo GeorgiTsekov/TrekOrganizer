@@ -17,6 +17,8 @@
 
         public Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName);
 
+        public Task<IEnumerable<TrekListingServiceModel>> All();
+
         public Task<TrekDetailsServiceModel> Details(int id, string userId);
 
         public Task<bool> Edit(

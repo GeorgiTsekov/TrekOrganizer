@@ -7,9 +7,9 @@ const CreateTrek = ({
     const onCreateTrekSubmitHandler = (e) => {
         e.preventDefault();
 
-        const { category, location, startDate, endDate, description, imageURL } = e.target;
+        const { category, location, startDate, endDate, description, imageUrl } = e.target;
 
-        trekService.create(category.value, location.value, startDate.value, endDate.value, description.value, imageURL.value)
+        trekService.create(category.value, location.value, startDate.value, endDate.value, description.value, imageUrl.value)
             .then(() => {
                 history.push('/categories/All');
             });
@@ -51,7 +51,7 @@ const CreateTrek = ({
             </div>
 
             <div className="form-label-group">
-                <input type="text" name="imageURL" className="form-control" placeholder="Image" required="" autofocus="" />
+                <input type="text" name="imageUrl" className="form-control" placeholder="Image" required="" autofocus="" />
             </div>
 
             <button className="btn btn-lg btn-dark btn-block" type="submit">Make a wish =)</button>

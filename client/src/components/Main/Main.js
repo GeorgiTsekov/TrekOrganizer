@@ -16,7 +16,7 @@ const Main = ({
 						description={x.description}
 						startDate={x.startDate}
 						endDate={x.endDate}
-						imageURL={x.imageURL}
+						imageUrl={x.imageUrl}
 						likes={x.likes}
 						organizer={x.organizer}
 					/>

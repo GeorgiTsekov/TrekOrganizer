@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:5000';
+const baseUrl = 'https://localhost:44385';
 
 export default {
     treks: `${baseUrl}/treks`,

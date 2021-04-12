@@ -38,6 +38,22 @@
             return trek.Id;
         }
 
+        public async Task<IEnumerable<TrekListingServiceModel>> All()
+        {
+            var treks = this.data
+                .Treks
+                .Select(t => new TrekListingServiceModel
+                {
+                    Id = t.Id,
+                    Location = t.Location,
+                    CategoryName = t.Category.Name,
+                    ImageUrl = t.ImageUrl
+                })
+                .ToListAsync();
+
+            return await treks;
+        }
+
         public async Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName)
         {
             var categoryId = this.data.Categories.FirstOrDefault(c => c.Name == categoryName).Id;
@@ -49,7 +65,7 @@
                 {
                     Id = t.Id,
                     Location = t.Location,
-                    CategoryName = categoryName,
+                    CategoryName = t.Category.Name,
                     ImageUrl = t.ImageUrl
                 })
                 .ToListAsync();
