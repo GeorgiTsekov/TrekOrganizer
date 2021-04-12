@@ -1,4 +1,4 @@
-﻿namespace TrekOrganizer.Server.Infrastructure
+﻿namespace TrekOrganizer.Server.Infrastructure.Extensions
 {
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Identity;
@@ -12,6 +12,7 @@
     using Features.Identity;
     using Features.Treks;
     using Microsoft.OpenApi.Models;
+    using TrekOrganizer.Server.Infrastructure.Filters;
 
     public static class ServiceCollectionExtentions
     {
@@ -98,6 +99,14 @@
             });
 
             return services;
+        }
+
+        public static void AddApiControllers(this IServiceCollection services)
+        {
+            services
+                .AddControllers(options => options
+                    .Filters
+                    .Add<ModelOrNotFoundActionFilter>());
         }
     }
 }

@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
+    using TrekOrganizer.Server.Features.Treks.Models;
 
     public class TrekService : ITrekService
     {
@@ -27,6 +28,7 @@
                 EndDate = endDate,
                 CategoryId = categoryId,
                 UserId = userId,
+                Likes = 0
             };
 
             this.data.Add(trek);
@@ -36,14 +38,14 @@
             return trek.Id;
         }
 
-        public async Task<IEnumerable<TrekListingResponseModel>> ByCategory(string categoryName)
+        public async Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName)
         {
             var categoryId = this.data.Categories.FirstOrDefault(c => c.Name == categoryName).Id;
 
             var treksByCategory = this.data
                 .Treks
                 .Where(t => t.CategoryId == categoryId)
-                .Select(t => new TrekListingResponseModel
+                .Select(t => new TrekListingServiceModel
                 {
                     Id = t.Id,
                     Location = t.Location,
@@ -53,6 +55,29 @@
                 .ToListAsync();
 
             return await treksByCategory;
+        }
+
+        public async Task<TrekDetailsServiceModel> Details(int id, string userId)
+        {
+            var trek = this.data
+                .Treks
+                .Where(t => t.Id == id)
+                .Select(t => new TrekDetailsServiceModel
+                {
+                    Id = t.Id,
+                    UserId = userId,
+                    Location = t.Location,
+                    CategoryName = t.Category.Name,
+                    ImageUrl = t.ImageUrl,
+                    Description = t.Description,
+                    StartDate = t.StartDate,
+                    EndDate = t.EndDate,
+                    Likes = t.Likes,
+                    OrganizerName = t.User.UserName
+                })
+                .FirstOrDefaultAsync();
+
+            return await trek;
         }
     }
 }

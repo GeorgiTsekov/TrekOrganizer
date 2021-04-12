@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Treks\" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

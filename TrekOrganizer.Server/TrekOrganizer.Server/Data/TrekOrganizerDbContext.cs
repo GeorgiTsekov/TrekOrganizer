@@ -15,6 +15,8 @@
 
         public DbSet<Trek> Treks { get; set; }
 
+        public DbSet<Vote> Votes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder
@@ -29,6 +31,13 @@
                 .HasOne(t => t.Category)
                 .WithMany(c => c.Treks)
                 .HasForeignKey(t => t.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Entity<Vote>()
+                .HasOne(v => v.Trek)
+                .WithMany(t => t.Votes)
+                .HasForeignKey(v => v.TrekId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);

@@ -1,10 +1,11 @@
 ﻿namespace TrekOrganizer.Server.Features.Treks
 {
-    using Infrastructure;
+    using Infrastructure.Extensions;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System.Collections;
     using System.Threading.Tasks;
+    using TrekOrganizer.Server.Features.Treks.Models;
 
     public class TreksController : ApiController
     {
@@ -15,6 +16,7 @@
             this.trekService = trekService;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IEnumerable> ByCategory(string categoryName)
         {
@@ -27,6 +29,17 @@
         //{
         //    return await this.trekService.All();
         //}
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<TrekDetailsServiceModel>> Details(int id)
+        {
+            var userId = this.User.GetId();
+
+            var trek = await this.trekService.Details(id, userId);
+
+            return trek;
+        }
 
         [Authorize]
         [HttpPost]

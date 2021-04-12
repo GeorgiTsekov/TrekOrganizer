@@ -1,6 +1,7 @@
 ﻿namespace TrekOrganizer.Server.Features.Identity
 {
     using Data.Models;
+    using Features.Identity.Models;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
@@ -24,7 +25,7 @@
 
         [HttpPost]
         [Route(nameof(Register))]
-        public async Task<ActionResult> Register(RegisterUserRequestModel model)
+        public async Task<ActionResult> Register(RegisterRequestModel model)
         {
             var user = new User
             {

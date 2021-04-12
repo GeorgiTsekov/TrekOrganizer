@@ -1,8 +1,8 @@
-﻿namespace TrekOrganizer.Server.Features.Treks
+﻿namespace TrekOrganizer.Server.Features.Treks.Models
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class TrekListingResponseModel
+    public class TrekListingServiceModel
     {
         public int Id { get; set; }
 

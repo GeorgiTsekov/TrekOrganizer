@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using TrekOrganizer.Server.Features.Treks.Models;
 
     public interface ITrekService
     {
@@ -14,6 +15,8 @@
             int categoryId, 
             string userId);
 
-        public Task<IEnumerable<TrekListingResponseModel>> ByCategory(string categoryName);
+        public Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName);
+
+        public Task<TrekDetailsServiceModel> Details(int id, string userId);
     }
 }

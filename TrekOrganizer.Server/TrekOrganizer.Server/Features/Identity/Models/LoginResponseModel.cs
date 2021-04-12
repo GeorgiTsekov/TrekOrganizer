@@ -1,4 +1,4 @@
-﻿namespace TrekOrganizer.Server.Features.Identity
+﻿namespace TrekOrganizer.Server.Features.Identity.Models
 {
     public class LoginResponseModel
     {

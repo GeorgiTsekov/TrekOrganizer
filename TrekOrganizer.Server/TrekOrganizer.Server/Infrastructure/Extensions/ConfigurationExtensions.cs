@@ -1,4 +1,4 @@
-﻿namespace TrekOrganizer.Server.Infrastructure
+﻿namespace TrekOrganizer.Server.Infrastructure.Extensions
 {
     using Microsoft.Extensions.Configuration;
 
