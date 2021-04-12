@@ -90,10 +90,7 @@
             int categoryId,
             string userId)
         {
-            var trek = await this.data
-                .Treks
-                .Where(t => t.Id == id && t.UserId == userId)
-                .FirstOrDefaultAsync();
+            Trek trek = await this.GetByIdAndByUserId(id, userId);
 
             if (trek == null)
             {
@@ -109,6 +106,30 @@
             await this.data.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<bool> Delete(int id, string userId)
+        {
+            var trek = await this.GetByIdAndByUserId(id, userId);
+
+            if (trek == null)
+            {
+                return false;
+            }
+
+            this.data.Treks.Remove(trek);
+
+            await this.data.SaveChangesAsync();
+
+            return true;
+        }
+
+        private async Task<Trek> GetByIdAndByUserId(int id, string userId)
+        {
+            return await this.data
+                .Treks
+                .Where(t => t.Id == id && t.UserId == userId)
+                .FirstOrDefaultAsync();
         }
     }
 }

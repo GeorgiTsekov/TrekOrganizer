@@ -7,6 +7,8 @@
     using System.Threading.Tasks;
     using TrekOrganizer.Server.Features.Treks.Models;
 
+    using static Infrastructure.WebConstants;
+
     public class TreksController : ApiController
     {
         private readonly ITrekService trekService;
@@ -32,7 +34,7 @@
 
         [Authorize]
         [HttpGet]
-        [Route("{id}")]
+        [Route(Id)]
         public async Task<ActionResult<TrekDetailsServiceModel>> Details(int id)
         {
             var userId = this.User.GetId();
@@ -77,6 +79,23 @@
                 userId);
 
             if (!updatedTrek)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpDelete]
+        [Route(Id)]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var userId = this.User.GetId();
+
+            var deleted = await this.trekService.Delete(id, userId);
+
+            if (!deleted)
             {
                 return BadRequest();
             }

@@ -28,5 +28,7 @@
             string endDate,
             int categoryId,
             string userId);
+
+        public Task<bool> Delete(int id, string userId);
     }
 }
