@@ -30,6 +30,7 @@
         //    return await this.trekService.All();
         //}
 
+        [Authorize]
         [HttpGet]
         [Route("{id}")]
         public async Task<ActionResult<TrekDetailsServiceModel>> Details(int id)
@@ -57,6 +58,30 @@
                 userId);
 
             return Created(nameof(this.Create), id);
+        }
+
+        [Authorize]
+        [HttpPut]
+        public async Task<ActionResult> Edit(EditTrekRequestModel model)
+        {
+            var userId = this.User.GetId();
+
+            var updatedTrek = await this.trekService.Edit(
+                model.Id,
+                model.Location,
+                model.Description,
+                model.ImageUrl,
+                model.StartDate,
+                model.EndDate,
+                model.CategoryId,
+                userId);
+
+            if (!updatedTrek)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
         }
     }
 }

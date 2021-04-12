@@ -18,5 +18,15 @@
         public Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName);
 
         public Task<TrekDetailsServiceModel> Details(int id, string userId);
+
+        public Task<bool> Edit(
+            int id,
+            string location,
+            string description,
+            string imageUrl,
+            string startDate,
+            string endDate,
+            int categoryId,
+            string userId);
     }
 }

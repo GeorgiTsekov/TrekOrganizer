@@ -79,5 +79,36 @@
 
             return await trek;
         }
+
+        public async Task<bool> Edit(
+            int id,
+            string location, 
+            string description,
+            string imageUrl,
+            string startDate,
+            string endDate,
+            int categoryId,
+            string userId)
+        {
+            var trek = await this.data
+                .Treks
+                .Where(t => t.Id == id && t.UserId == userId)
+                .FirstOrDefaultAsync();
+
+            if (trek == null)
+            {
+                return false;
+            }
+
+            trek.Location = location;
+            trek.Description = description;
+            trek.ImageUrl = imageUrl;
+            trek.StartDate = startDate;
+            trek.CategoryId = categoryId;
+
+            await this.data.SaveChangesAsync();
+
+            return true;
+        }
     }
 }
