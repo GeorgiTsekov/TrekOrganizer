@@ -22,7 +22,7 @@
         [Required]
         public string EndDate { get; set; }
 
-        [Range(1, 8)]
-        public int CategoryId { get; set; }
+        [Required]
+        public string CategoryName { get; set; }
     }
 }

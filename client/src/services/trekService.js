@@ -1,8 +1,7 @@
 const url = 'https://localhost:44385/treks';
 
 export const getAll = (category = '') => {
-    let currentCategory = (category && category != 'All') ? `?category=${category}` : '';
-
+    let currentCategory = (category && category != 'All') ? `?categoryName=${category}` : '';
     return fetch(url + currentCategory)
         .then(res => res.json())
         .catch(error => console.log(error));

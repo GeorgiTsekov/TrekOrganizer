@@ -30,7 +30,7 @@ const EditTrek = ({
         <form className="create-trek" onSubmit={onEditTrekSubmitHandler}>
             <div className="form-label-group">
                 <select className="form-control" name="category">
-                    <option>{trek.category}</option>
+                    <option>{trek.categoryName}</option>
                     <option>Hiking</option>
                     <option>Walking</option>
                     <option>Running</option>

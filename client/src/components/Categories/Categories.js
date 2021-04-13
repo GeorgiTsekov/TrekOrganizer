@@ -24,6 +24,7 @@ class Categories extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         const category = this.props.match.params.category;
+
         if (prevProps.match.params.category == category) {
             return;
         }
@@ -44,7 +45,7 @@ class Categories extends Component {
                             <Trek
                                 key={x.id}
                                 id={x.id}
-                                category={x.category}
+                                categoryName={x.categoryName}
                                 location={x.location}
                                 createdOn={x.createdOn}
                                 description={x.description}

@@ -25,14 +25,15 @@ const TrekDetails = ({
             <div className="card overflow-hidden treksPlaceholder trek-details">
                 <img className="card-image" src={trek.imageUrl} />
                 <div className="overflow-hidden my-3 p-3">
-                    <h2 className="display-5">{trek.location}</h2>
+                    <h1 className="display-5">{trek.location}</h1>
+                    <h2 className="display-5">{trek.categoryName}</h2>
                     <p className="infoType">Description:</p>
                     <p className="trek-description">{trek.description}</p>
                     <p className="infoType">createdOn: <large>{trek.createdOn}</large></p>
                     <p className="infoType">startDate: <large>{trek.startDate}</large></p>
                     <p className="infoType">endDate: <large>{trek.endDate}</large></p>
                     <p className="infoType">Likes: <large>{trek.likes}</large></p>
-                    <p className="infoType">Organizer: <large>{trek.organizer}</large></p>
+                    <p className="infoType">Organizer: <large>{trek.organizerName}</large></p>
                 </div>
                 <div className="buttons-together">
                     <Link className="a-button" to={`/treks/details/${trek.id}/edit`}>Edit the trek</Link>

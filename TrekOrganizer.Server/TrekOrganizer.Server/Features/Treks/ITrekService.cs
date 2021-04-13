@@ -12,12 +12,10 @@
             string imageUrl,
             string startDate, 
             string endDate,
-            int categoryId, 
+            string categoryName, 
             string userId);
 
         public Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName);
-
-        public Task<IEnumerable<TrekListingServiceModel>> All();
 
         public Task<TrekDetailsServiceModel> Details(int id, string userId);
 
@@ -28,7 +26,7 @@
             string imageUrl,
             string startDate,
             string endDate,
-            int categoryId,
+            string categoryName,
             string userId);
 
         public Task<bool> Delete(int id, string userId);

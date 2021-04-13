@@ -20,17 +20,9 @@
 
         [Authorize]
         [HttpGet]
-        [Route("categories")]
         public async Task<IEnumerable> ByCategory(string categoryName)
         {
             return await this.trekService.ByCategory(categoryName);
-        }
-
-        [Authorize]
-        [HttpGet]
-        public async Task<IEnumerable> All()
-        {
-            return await this.trekService.All();
         }
 
         [Authorize]
@@ -57,7 +49,7 @@
                 model.ImageUrl,
                 model.StartDate, 
                 model.EndDate, 
-                model.CategoryId,
+                model.CategoryName,
                 userId);
 
             return Created(nameof(this.Create), id);
@@ -76,7 +68,7 @@
                 model.ImageUrl,
                 model.StartDate,
                 model.EndDate,
-                model.CategoryId,
+                model.CategoryName,
                 userId);
 
             if (!updatedTrek)

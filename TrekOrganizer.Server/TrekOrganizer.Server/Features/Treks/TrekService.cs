@@ -17,7 +17,7 @@
             this.data = data;
         }
 
-        public async Task<int> Create(string location, string description, string imageUrl, string startDate, string endDate, int categoryId, string userId)
+        public async Task<int> Create(string location, string description, string imageUrl, string startDate, string endDate, string categoryName, string userId)
         {
             var trek = new Trek
             {
@@ -26,7 +26,7 @@
                 ImageUrl = imageUrl,
                 StartDate = startDate,
                 EndDate = endDate,
-                CategoryId = categoryId,
+                CategoryId = this.data.Categories.Where(c => c.Name == categoryName).FirstOrDefault().Id,
                 UserId = userId,
                 Likes = 0
             };
@@ -38,29 +38,12 @@
             return trek.Id;
         }
 
-        public async Task<IEnumerable<TrekListingServiceModel>> All()
-        {
-            var treks = this.data
-                .Treks
-                .Select(t => new TrekListingServiceModel
-                {
-                    Id = t.Id,
-                    Location = t.Location,
-                    CategoryName = t.Category.Name,
-                    ImageUrl = t.ImageUrl
-                })
-                .ToListAsync();
-
-            return await treks;
-        }
-
         public async Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName)
         {
-            var categoryId = this.data.Categories.FirstOrDefault(c => c.Name == categoryName).Id;
-
-            var treksByCategory = this.data
+            if (categoryName == "All" || categoryName == null)
+            {
+                var treks = this.data
                 .Treks
-                .Where(t => t.CategoryId == categoryId)
                 .Select(t => new TrekListingServiceModel
                 {
                     Id = t.Id,
@@ -70,7 +53,26 @@
                 })
                 .ToListAsync();
 
-            return await treksByCategory;
+                return await treks;
+            }
+            else
+            {
+                var categoryId = this.data.Categories.FirstOrDefault(c => c.Name == categoryName).Id;
+
+                var treksByCategory = this.data
+                    .Treks
+                    .Where(t => t.CategoryId == categoryId)
+                    .Select(t => new TrekListingServiceModel
+                    {
+                        Id = t.Id,
+                        Location = t.Location,
+                        CategoryName = t.Category.Name,
+                        ImageUrl = t.ImageUrl
+                    })
+                    .ToListAsync();
+
+                return await treksByCategory;
+            }
         }
 
         public async Task<TrekDetailsServiceModel> Details(int id, string userId)
@@ -103,7 +105,7 @@
             string imageUrl,
             string startDate,
             string endDate,
-            int categoryId,
+            string categoryName,
             string userId)
         {
             Trek trek = await this.GetByIdAndByUserId(id, userId);
@@ -117,7 +119,7 @@
             trek.Description = description;
             trek.ImageUrl = imageUrl;
             trek.StartDate = startDate;
-            trek.CategoryId = categoryId;
+            trek.CategoryId = this.data.Categories.Where(c => c.Name == categoryName).FirstOrDefault().Id;
 
             await this.data.SaveChangesAsync();
 
