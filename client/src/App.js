@@ -8,6 +8,8 @@ import TrekDetails from './components/TrekDetails/TrekDetails';
 import CreateTrek from './components/CreateTrek/CreateTrek';
 import EditTrek from './components/EditTrek/EditTrek';
 import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 import style from './App.module.css';
 
@@ -21,10 +23,13 @@ class App extends Component {
         <Switch>
           
           <Route path="/" exact component={Home}></Route>
+          <Route path="/login" component={Login}></Route>
+
           <Route path="/categories/:category" component={Categories}></Route>
           <Route path="/treks/details/:trekId" exact component={TrekDetails}></Route>
           <Route path="/treks/details/:trekId/edit" component={EditTrek}></Route>
           <Route path="/treks/create" component={CreateTrek}></Route>
+          <Route path="/register" component={Register}></Route>
 
         </Switch>
 

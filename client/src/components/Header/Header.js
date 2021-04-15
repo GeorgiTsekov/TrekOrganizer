@@ -9,9 +9,9 @@ const Header = () => {
                 <Link className="py-2 d-none d-md-inline-block" to="/categories/All">Request Trek</Link>
                 <Link className="py-2 d-none d-md-inline-block" to="/treks/create">Create Trek</Link>
                 <Link className="py-2 d-none d-md-inline-block" to="#">Hello, username</Link>
-                <Link className="py-2 d-none d-md-inline-block" to="#">Logout</Link>
-                <Link className="py-2 d-none d-md-inline-block" to="#">Login</Link>
-                <Link className="py-2 d-none d-md-inline-block" to="#">Register</Link>
+                <Link className="py-2 d-none d-md-inline-block" to="/logout">Logout</Link>
+                <Link className="py-2 d-none d-md-inline-block" to="/login">Login</Link>
+                <Link className="py-2 d-none d-md-inline-block" to="/register">Register</Link>
             </div>
         </nav>
     );
