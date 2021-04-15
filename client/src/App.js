@@ -12,31 +12,36 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 
 import style from './App.module.css';
+import useToken from './components/UseToken/useToken';
 
-class App extends Component {
+function App() {
 
-  render() {
-    return (
-      <div className={style.app}>
-        <Header />
+  const { token, setToken } = useToken();
 
-        <Switch>
-          
-          <Route path="/" exact component={Home}></Route>
-          <Route path="/login" component={Login}></Route>
-
-          <Route path="/categories/:category" component={Categories}></Route>
-          <Route path="/treks/details/:trekId" exact component={TrekDetails}></Route>
-          <Route path="/treks/details/:trekId/edit" component={EditTrek}></Route>
-          <Route path="/treks/create" component={CreateTrek}></Route>
-          <Route path="/register" component={Register}></Route>
-
-        </Switch>
-
-        <Footer />
-      </div>
-    );
+  if (!token) {
+    return <Login setToken={setToken} />
   }
+
+  return (
+    <div className={style.app}>
+      <Header />
+
+      <Switch>
+
+        <Route path="/" exact component={Home}></Route>
+
+        <Route path="/categories/:category" component={Categories}></Route>
+        <Route path="/treks/details/:trekId" exact component={TrekDetails}></Route>
+        <Route path="/treks/details/:trekId/edit" component={EditTrek}></Route>
+        <Route path="/treks/create" component={CreateTrek}></Route>
+        <Route path="/register" component={Register}></Route>
+        <Route path="/login" component={Login}></Route>
+
+      </Switch>
+
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
