@@ -3,18 +3,16 @@ import { Link } from 'react-router-dom';
 import * as trekService from '../../services/trekService';
 import './TrekDetails.css';
 
-const TrekDetails = ({
-    match
-}) => {
+function TrekDetails(props) {
     let [trek, setTrek] = useState({});
     useEffect(() => {
-        trekService.getOne(match.params.trekId)
+        trekService.getOne(props.match.params.trekId, props.authenticationToken)
             .then(res => setTrek(res));
-    }, [match]);
+    }, []);
 
     const onTrekButtonClickHandler = () => {
         let incrementedLikes = trek.likes + 1;
-        trekService.like(match.params.trekId, incrementedLikes)
+        trekService.like(props.match.params.trekId, incrementedLikes)
             .then(() => {
                 setTrek(state => ({ ...state, likes: incrementedLikes }))
             });

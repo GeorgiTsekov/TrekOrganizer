@@ -18,8 +18,6 @@
             this.trekService = trekService;
         }
 
-        [Authorize]
-        [HttpGet]
         public async Task<IEnumerable> ByCategory(string categoryName)
         {
             return await this.trekService.ByCategory(categoryName);

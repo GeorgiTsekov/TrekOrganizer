@@ -7,8 +7,13 @@ export const getAll = (category = '') => {
         .catch(error => console.log(error));
 }
 
-export const getOne = (trekId) => {
-    return fetch(`${url}/${trekId}`)
+export const getOne = (trekId, token) => {
+    let currrentToken = token;
+    return fetch(`${url}/${trekId}`,{
+        headers: {
+            'Authorization': currrentToken
+        }
+    })
         .then(res => res.json())
         .catch(error => console.log(error));
 }

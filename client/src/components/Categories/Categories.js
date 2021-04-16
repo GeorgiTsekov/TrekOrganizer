@@ -12,14 +12,13 @@ class Categories extends Component {
 
         this.state = {
             treks: [],
-            currentCategory: 'All'
+            currentCategory: 'All',
         }
     }
 
     componentDidMount() {
         trekService.getAll()
             .then(res => this.setState({ treks: res }));
-
     }
 
     componentDidUpdate(prevProps, prevState) {

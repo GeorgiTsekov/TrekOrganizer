@@ -22,6 +22,11 @@ function App() {
     return <Login setToken={setToken} />
   }
 
+  const authInfo = {
+    authenticationToken: `Bearer ${token}`
+  }
+
+
   return (
     <div className={style.app}>
       <Header />
@@ -29,13 +34,12 @@ function App() {
       <Switch>
 
         <Route path="/" exact component={Home}></Route>
-
-        <Route path="/categories/:category" component={Categories}></Route>
-        <Route path="/treks/details/:trekId" exact component={TrekDetails}></Route>
-        <Route path="/treks/details/:trekId/edit" component={EditTrek}></Route>
-        <Route path="/treks/create" component={CreateTrek}></Route>
-        <Route path="/register" component={Register}></Route>
-        <Route path="/login" component={Login}></Route>
+        <Route path="/categories/:category" render={props => <Categories {...props}{...authInfo} />} />
+        <Route path="/treks/details/:trekId" exact render={props => <TrekDetails {...props}{...authInfo} />} />
+        <Route path="/treks/details/:trekId/edit" render={props => <EditTrek {...props}{...authInfo} />} />
+        <Route path="/treks/create" render={props => <CreateTrek {...props}{...authInfo} />} />
+        <Route path="/register" render={props => <Register {...props}{...authInfo} />} />
+        <Route path="/login" render={props => <Login {...props}{...authInfo} />} />
 
       </Switch>
 
