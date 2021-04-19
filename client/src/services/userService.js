@@ -1,23 +1,21 @@
 const url = 'https://localhost:44385/identity';
 
-export const register = (userName, email, password) => {
-    let user = {
-        userName,
-        email,
-        password
-    }
-
-    return fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user)
-    });
-}
-
-export const login = (userName, password) => {
-    return fetch(`${url}/${login}`)
-        .then(res => res.json())
-        .catch(error => console.log(error));
-}
+export const loginUser = (credentials) => {
+    return fetch(`${url}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(credentials)
+    })
+      .then((response) => {
+        response.json()
+          .then((result) => {
+            console.warn("result", result);
+            localStorage.setItem('login', JSON.stringify({
+              login: true,
+              token: result.token
+            }))
+          })
+      })
+  }

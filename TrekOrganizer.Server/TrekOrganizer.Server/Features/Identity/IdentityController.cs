@@ -6,6 +6,8 @@
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.Options;
+    using Microsoft.AspNetCore.Authorization;
+    using TrekOrganizer.Server.Infrastructure.Extensions;
 
     public class IdentityController : ApiController
     {
@@ -68,6 +70,17 @@
             {
                 Token = token
             };
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<UserDetailsServiceModel>> UserDetails()
+        {
+            var id = this.User.GetId();
+
+            var user = await this.identityService.UserDetails(id);
+
+            return user;
         }
     }
 }

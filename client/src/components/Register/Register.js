@@ -14,7 +14,6 @@ class Register extends Component {
         this.UserName = this.UserName.bind(this);
         this.Email = this.Email.bind(this);
         this.Password = this.Password.bind(this);
-        this.Password = this.Password.bind(this);
         this.register = this.register.bind(this);
     }
 
@@ -44,7 +43,7 @@ class Register extends Component {
             .then((Response) => Response.json())
             .then((Result) => {
                 if (Result.Status == 'Success') {
-                    this.props.history.push("/Dashboard");
+                    this.props.history.push("/");
                 }
                 else {
                     alert('Sorrrrrry !!!! Un-authenticated User !!!!!')

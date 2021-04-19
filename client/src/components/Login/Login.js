@@ -1,33 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { getNodeText } from '@testing-library/dom';
-import { Redirect } from 'react-router';
-
-let currentToken = '';
-
-async function loginUser(credentials) {
-  return fetch('https://localhost:44385/Identity/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(credentials)
-  })
-    .then((response) => {
-      response.json()
-        .then((result) => {
-          console.warn("result", result);
-          currentToken = result;
-          localStorage.setItem('login', JSON.stringify({
-            login: true,
-            token: result.token
-          }))
-        })
-    })
-    .then(() => {
-      Redirect("/");
-    })
-}
+import * as userService from '../../services/userService';
 
 export default function Login({ setToken }) {
   const [userName, setUserName] = useState();
@@ -35,7 +8,7 @@ export default function Login({ setToken }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const token = await loginUser({
+    const token = await userService.loginUser({
       userName,
       password
     });

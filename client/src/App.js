@@ -9,6 +9,7 @@ import CreateTrek from './components/CreateTrek/CreateTrek';
 import EditTrek from './components/EditTrek/EditTrek';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 
 import style from './App.module.css';
@@ -18,7 +19,7 @@ function App() {
 
   const { token, setToken } = useToken();
 
-  if (!token) {
+  if (token) {
     return <Login setToken={setToken} />
   }
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/treks/create" render={props => <CreateTrek {...props}{...authInfo} />} />
         <Route path="/register" render={props => <Register {...props}{...authInfo} />} />
         <Route path="/login" render={props => <Login {...props}{...authInfo} />} />
+        <Route path="/logout" render={props => <Logout {...props}{...authInfo} />} />
 
       </Switch>
 
