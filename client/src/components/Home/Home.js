@@ -1,6 +1,6 @@
 import './Home.css'
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="home d-md-flex flex-md-equal  my-md-3 pl-md-3">
       <div className="col-md-7">
@@ -10,6 +10,9 @@ const Home = () => {
         <p className="lead">2. Request the trek you've always wanted.</p>
         <p className="lead">3. Find people who like your idea.</p>
         <p className="lead">If you find enough supporters, we will organize everything for you!</p>
+        <p className="lead">{props.userName ? 'Hi ' + props.userName : 'You are not logged in!'}</p>
+        <p className="lead">{props.email ? 'Hi ' + props.email : 'You are not logged in!'}</p>
+        <p className="lead">{props.id ? 'Hi ' + props.id : 'You are not logged in!'}</p>
       </div>
       <div className="col-md-5">
         <img className="home-picture" src="/mountainLogo.png" />
