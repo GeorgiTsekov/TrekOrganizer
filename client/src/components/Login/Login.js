@@ -1,60 +1,56 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import axios from 'axios';
+import { Component } from 'react';
 import { Redirect } from 'react-router';
-import * as userService from '../../services/userService';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
-  const [userName, setUserName] = useState();
-  const [password, setPassword] = useState();
-  const [redirect, setRedirect] = useState(false);
-  const [token, setToken] = useState();
+export default class Login extends Component {
+  state = {};
 
-  const submit = async (e) => {
+  submit = e => {
     e.preventDefault();
-    // const token = await userService.loginUser({
-    //   userName,
-    //   password
-    // });
 
-    await fetch('https://localhost:44385/Identity/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        userName,
-        password
+    const data = {
+      userName: this.userName,
+      password: this.password,
+    };
+
+    axios.post('Identity/login', data)
+      .then(res => {
+        localStorage.setItem('token', res.data.token);
+        this.setState({
+          loggedIn: true
+        });
+        this.props.setUser(res.data.user);
       })
-    })
-    .then((response) => {
-      response.json()
-        .then((result) => {
-          localStorage.setItem('token', result.token)
-        })
-    })
-
-    setRedirect(true);
+      .catch(err => {
+        console.log(err);
+      })
   }
 
-  if (redirect) {
-    return <Redirect to="/" />;
-  }
+  render() {
+    if (this.state.loggedIn) {
+      return <Redirect to={'/'} />;
+    }
 
-  return (
-    <form onSubmit={submit}>
-      <label>
-        <p>Username</p>
-        <input type="text" onChange={e => setUserName(e.target.value)} />
-      </label>
-      <label>
-        <p>Password</p>
-        <input type="password" onChange={e => setPassword(e.target.value)} />
-      </label>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-  )
+    return (
+      <form onSubmit={this.submit}>
+        <label>
+          <p>Username</p>
+          <input type="text" onChange={e => this.userName = e.target.value} />
+        </label>
+        <label>
+          <p>Password</p>
+          <input type="password" onChange={e => this.password = e.target.value} />
+        </label>
+        <div className="text-center mb-4">
+          <p className="alreadyUser"> You haven't account? Then just <Link to="/register">Sign-Up</Link>!</p>
+        </div>
+        <p className="mt-5 mb-3 text-muted text-center">© The Trekking Zone - 2019.</p>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    )
+  }
 }
-
-export default Login;
