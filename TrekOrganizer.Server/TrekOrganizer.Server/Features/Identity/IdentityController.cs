@@ -74,6 +74,7 @@
 
         [HttpGet]
         [Authorize]
+        [Route(nameof(User))]
         public async Task<ActionResult<UserDetailsServiceModel>> UserDetails()
         {
             var id = this.User.GetId();

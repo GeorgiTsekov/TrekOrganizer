@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
 import axios from 'axios';
-import { Component } from 'react';
-import { Redirect } from 'react-router';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default class Login extends Component {
@@ -29,6 +28,7 @@ export default class Login extends Component {
   }
 
   render() {
+
     if (this.state.loggedIn) {
       return <Redirect to={'/'} />;
     }

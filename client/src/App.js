@@ -17,8 +17,8 @@ import style from './App.module.css';
 export default class App extends Component {
   state = {};
 
-  componentDidMount = () => {
-    axios.get('Identity').then(
+  componentDidMount() {
+    axios.get('identity/user').then(
       res => {
         this.setUser(res.data);
       },
@@ -26,13 +26,13 @@ export default class App extends Component {
         console.log(err);
       }
     )
-  }
+  };
 
-  setUser = user => {
+  setUser = (user) => {
     this.setState({
       user: user
     });
-  }
+  };
 
   render() {
     return (
@@ -43,17 +43,18 @@ export default class App extends Component {
 
           <Switch>
             <Route exact path="/" component={() => <Home user={this.state.user} />} />
+            <Route exact path="/login" component={() => <Login setUser={this.setUser}/>} />
+            <Route exact path="/register" component={Register} />
             <Route path="/categories/:category" component={Categories} />
             <Route path="/treks/details/:trekId" component={TrekDetails} />
             <Route path="/treks/details/:trekId/edit" component={EditTrek} />
             <Route path="/treks/create" component={CreateTrek} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={() => <Login setUser={this.setUser}/>} />
           </Switch>
+
+          <Footer />
 
         </BrowserRouter>
 
-        <Footer />
       </div>
     );
   }

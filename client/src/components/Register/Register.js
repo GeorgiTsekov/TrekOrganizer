@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { Component } from 'react';
-import React, { useState } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 
 export default class Register extends Component {
+    state = {};
     
     submit = (e) => {
         e.preventDefault();
@@ -18,10 +19,17 @@ export default class Register extends Component {
         axios.post('Identity/register', data)
             .then(res => {
                 console.log(res)
+                this.setState({
+                    success: true
+                  });
             });
     }
     
     render() {
+        if (this.state.success) {
+            return <Redirect to={'/login'} />;
+          }
+
         return (
             <form onSubmit={this.submit} >
                 <label>
