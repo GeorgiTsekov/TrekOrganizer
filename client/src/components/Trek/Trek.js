@@ -9,7 +9,7 @@ const Trek = ({
 }) => {
     return (
         <div className="trek">
-            <Link to={`/treks/details/${id}`} className="card overflow-hidden treksPlaceholder trek-details">
+            <Link to={`/treks/${id}`} className="card overflow-hidden treksPlaceholder trek-details">
                 <div className="card-body">
                     <p className="card-text">
                         {location}

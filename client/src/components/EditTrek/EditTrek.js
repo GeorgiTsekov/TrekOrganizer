@@ -1,6 +1,7 @@
 import * as trekService from '../../services/trekService';
 import { useEffect, useState } from 'react';
 import '../CreateTrek/CreateTrek.css';
+import axios from 'axios';
 
 const EditTrek = ({
     match,
@@ -11,25 +12,33 @@ const EditTrek = ({
     let trekId = match.params.trekId;
 
     useEffect(() => {
-        trekService.getOne(trekId)
-            .then(res => setTrek(res));
+        axios.get(`treks/${trekId}`)
+            .then(res => setTrek(res.data))
+            .catch(error => { console.log(error.response.data.errors) })
     }, [match]);
 
     const onEditTrekSubmitHandler = (e) => {
         e.preventDefault();
+
+        const { categoryName, location, startDate, endDate, description, imageUrl } = e.target;
+        let updatedTrek = { ...trek, categoryName: categoryName.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageUrl: imageUrl.value, id: trekId };
+        console.log(updatedTrek)
         
-        const {category, location, startDate, endDate, description, imageUrl} = e.target;
-        let updatedTrek = {...trek, category: category.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageUrl: imageUrl.value};
-        trekService.edit(match.params.trekId, updatedTrek)
+        axios.put(`treks`, updatedTrek)
+            .then(res => {
+                console.log(res)
+                this.setTrek(res.updatedTrek)
+            })
+            .catch(error => { console.log(error.response.data.errors) })
             .then(() => {
-                history.push(`/treks/details/${trekId}`);
+                history.push(`/treks/${trekId}`);
             });
     }
 
     return (
         <form className="create-trek" onSubmit={onEditTrekSubmitHandler}>
             <div className="form-label-group">
-                <select className="form-control" name="category">
+                <select className="form-control" name="categoryName">
                     <option>{trek.categoryName}</option>
                     <option>Hiking</option>
                     <option>Walking</option>
@@ -47,11 +56,11 @@ const EditTrek = ({
             </div>
 
             <div className="form-label-group">
-                <input type="text"name="startDate" className="form-control" placeholder="StartDate" required="" defaultValue={trek.startDate} />
+                <input type="text" name="startDate" className="form-control" placeholder="StartDate" required="" defaultValue={trek.startDate} />
             </div>
 
             <div className="form-label-group">
-                <input type="text"name="endDate" className="form-control" placeholder="EndDate" required="" defaultValue={trek.endDate} />
+                <input type="text" name="endDate" className="form-control" placeholder="EndDate" required="" defaultValue={trek.endDate} />
             </div>
 
             <div className="form-label-group">

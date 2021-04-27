@@ -17,7 +17,7 @@ export default class Header extends Component {
                 <div className={style.container}>
                     <Link className="py-2 d-none d-md-inline-block" to="/categories/All">Request Trek</Link>
                     <Link className="py-2 d-none d-md-inline-block" to="#">Hello, {this.props.user.userName}</Link>
-                    <Link className="py-2 d-none d-md-inline-block" to="/treks/create">Create Trek</Link>
+                    <Link className="py-2 d-none d-md-inline-block" to="/create/treks">Create Trek</Link>
                     <Link className="py-2 d-none d-md-inline-block" to="/" onClick={this.handleLogout}>Logout</Link>
                 </div>
             )

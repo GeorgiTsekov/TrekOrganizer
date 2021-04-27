@@ -46,9 +46,9 @@ export default class App extends Component {
             <Route exact path="/login" component={() => <Login setUser={this.setUser}/>} />
             <Route exact path="/register" component={Register} />
             <Route path="/categories/:category" component={Categories} />
-            <Route path="/treks/details/:trekId" component={TrekDetails} />
-            <Route path="/treks/details/:trekId/edit" component={EditTrek} />
-            <Route path="/treks/create" component={CreateTrek} />
+            <Route path="/treks/:trekId" component={TrekDetails} />
+            <Route path="/edit/treks/:trekId" component={EditTrek} />
+            <Route path="/create/treks" component={CreateTrek} />
           </Switch>
 
           <Footer />

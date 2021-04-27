@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const url = 'https://localhost:44385/treks';
 
 export const getAll = (category = '') => {
@@ -7,18 +9,16 @@ export const getAll = (category = '') => {
         .catch(error => console.log(error));
 }
 
-export const getOne = (trekId, token) => {
-    let currrentToken = token;
-    return fetch(`${url}/${trekId}`,{
-        headers: {
-            'Authorization': currrentToken
-        }
-    })
-        .then(res => res.json())
-        .catch(error => console.log(error));
+
+
+export const getOne = (trekId) => {
+    return axios.get(`treks/${trekId}`)
+            .then(res => {
+                this.setState(res.data);
+            });
 }
 
-export const create = (category, location, startDate, endDate, description, imageUrl) => {
+export const create = (category, location, startDate, endDate, description, imageUrl, userName) => {
     let trek = {
         category,
         location,
@@ -27,16 +27,13 @@ export const create = (category, location, startDate, endDate, description, imag
         description,
         imageUrl,
         likes: 0,
-        organizer: 'Pesho',
-        createdOn: Date.UTC(),
+        organizer: userName
+        // createdOn: Date.UTC(),
     }
-
-    return fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(trek)
+    
+    return axios.post(`treks`, trek)
+    .then(res => {
+        this.setState(res.data);
     });
 }
 
@@ -48,6 +45,7 @@ export const edit = (trekId, trek) => {
         },
         body: JSON.stringify(trek)
     });
+    
 }
 
 export const like = (trekId, incrementedLikes) => {
