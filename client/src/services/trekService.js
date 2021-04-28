@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 
 const url = 'https://localhost:44385/treks';
@@ -13,12 +14,12 @@ export const getAll = (category = '') => {
 
 export const getOne = (trekId) => {
     return axios.get(`treks/${trekId}`)
-            .then(res => {
-                this.setState(res.data);
-            });
+        .then(res => {
+            this.setState(res.data);
+        });
 }
 
-export const create = (category, location, startDate, endDate, description, imageUrl, userName) => {
+export const create = (category, location, startDate, endDate, description, imageUrl) => {
     let trek = {
         category,
         location,
@@ -26,15 +27,16 @@ export const create = (category, location, startDate, endDate, description, imag
         endDate,
         description,
         imageUrl,
-        likes: 0,
-        organizer: userName
+        // organizer: userEvent.userName
         // createdOn: Date.UTC(),
     }
-    
     return axios.post(`treks`, trek)
-    .then(res => {
-        this.setState(res.data);
-    });
+        .then(res => {
+            console.log(res)
+            console.log(trek)
+            this.setState(res.trek);
+        })
+        .catch(error => { console.log(error.data) });
 }
 
 export const edit = (trekId, trek) => {
@@ -45,7 +47,7 @@ export const edit = (trekId, trek) => {
         },
         body: JSON.stringify(trek)
     });
-    
+
 }
 
 export const like = (trekId, incrementedLikes) => {
@@ -54,6 +56,6 @@ export const like = (trekId, incrementedLikes) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({likes: incrementedLikes})
+        body: JSON.stringify({ likes: incrementedLikes })
     });
 }

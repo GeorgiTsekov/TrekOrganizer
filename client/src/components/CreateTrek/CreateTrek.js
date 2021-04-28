@@ -1,15 +1,32 @@
-import * as trekService from '../../services/trekService';
 import './CreateTrek.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const CreateTrek = ({
     history,
 }) => {
+    let [trek, setTrek] = useState({});
     const onCreateTrekSubmitHandler = (e) => {
         e.preventDefault();
 
-        const { category, location, startDate, endDate, description, imageUrl } = e.target;
+        const { categoryName, location, startDate, endDate, description, imageUrl } = e.target;
 
-        trekService.create(category.value, location.value, startDate.value, endDate.value, description.value, imageUrl.value)
+        trek = {
+            categoryName: categoryName.value,
+            location: location.value,
+            startDate: startDate.value,
+            endDate: endDate.value,
+            description: description.value,
+            imageUrl: imageUrl.value,
+            // organizer: userEvent.userName
+            // createdOn: Date.UTC(),
+        }
+
+        return axios.post(`treks`, trek)
+            .then(res => {
+                setTrek(res.trek);
+            })
+            .catch(error => { console.log(error.data) })
             .then(() => {
                 history.push('/categories/All');
             });
@@ -22,7 +39,7 @@ const CreateTrek = ({
                 <p>Fill up the following information!</p>
             </div>
             <div className="form-label-group">
-                <select className="form-control" name="category">
+                <select className="form-control" name="categoryName">
                     <option></option>
                     <option>Hiking</option>
                     <option>Walking</option>

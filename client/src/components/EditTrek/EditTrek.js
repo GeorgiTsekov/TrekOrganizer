@@ -1,37 +1,31 @@
-import * as trekService from '../../services/trekService';
 import { useEffect, useState } from 'react';
 import '../CreateTrek/CreateTrek.css';
 import axios from 'axios';
 
-const EditTrek = ({
-    match,
-    history,
-}) => {
+function EditTrek(props){
     const [trek, setTrek] = useState({});
 
-    let trekId = match.params.trekId;
+    let trekId = props.match.params.trekId;
 
     useEffect(() => {
         axios.get(`treks/${trekId}`)
             .then(res => setTrek(res.data))
             .catch(error => { console.log(error.response.data.errors) })
-    }, [match]);
+    }, [props.match]);
 
     const onEditTrekSubmitHandler = (e) => {
         e.preventDefault();
 
         const { categoryName, location, startDate, endDate, description, imageUrl } = e.target;
         let updatedTrek = { ...trek, categoryName: categoryName.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageUrl: imageUrl.value, id: trekId };
-        console.log(updatedTrek)
-        
-        axios.put(`treks`, updatedTrek)
+
+        axios.put(`treks/${trekId}`, updatedTrek)
             .then(res => {
-                console.log(res)
                 this.setTrek(res.updatedTrek)
             })
-            .catch(error => { console.log(error.response.data.errors) })
+            .catch(error => { console.log(error.data) })
             .then(() => {
-                history.push(`/treks/${trekId}`);
+                props.history.push(`/treks/${trekId}`);
             });
     }
 

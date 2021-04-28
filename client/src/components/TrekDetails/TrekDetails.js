@@ -38,7 +38,7 @@ function TrekDetails(props) {
                 </div>
                 <div className="buttons-together">
                     <Link className="a-button" to={`/edit/treks/${trek.id}`}>Edit the trek</Link>
-                    <Link className="a-button" to={`/treks/${trek.id}/close`}>Close the trek</Link>
+                    <Link className="a-button" to={`/delete/treks/${trek.id}`}>Close the trek</Link>
                     <button className="a-button" onClick={onTrekButtonClickHandler}><i className="fas fa-heart"></i> Like</button>
                 </div>
             </div>

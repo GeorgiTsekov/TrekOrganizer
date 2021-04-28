@@ -10,6 +10,7 @@ import EditTrek from './components/EditTrek/EditTrek';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import DeleteTrek from './components/DeleteTrek/DeleteTrek';
 import axios from 'axios';
 
 import style from './App.module.css';
@@ -48,6 +49,7 @@ export default class App extends Component {
             <Route path="/categories/:category" component={Categories} />
             <Route path="/treks/:trekId" component={TrekDetails} />
             <Route path="/edit/treks/:trekId" component={EditTrek} />
+            <Route path="/delete/treks/:trekId" component={DeleteTrek} />
             <Route path="/create/treks" component={CreateTrek} />
           </Switch>
 
