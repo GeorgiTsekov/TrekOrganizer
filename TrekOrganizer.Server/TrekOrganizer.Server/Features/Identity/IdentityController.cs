@@ -7,21 +7,24 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.Options;
     using Microsoft.AspNetCore.Authorization;
-    using TrekOrganizer.Server.Infrastructure.Extensions;
+    using Infrastructure.Services;
 
     public class IdentityController : ApiController
     {
         private readonly UserManager<User> userManager;
-        private readonly IIdentityService identityService;
+        private readonly IIdentityService identity;
+        private readonly ICurrentUserService currentUser;
         private readonly AppSettings appSettings;
 
         public IdentityController(
             UserManager<User> userManager,
-            IIdentityService identityService,
-            IOptions<AppSettings> appSettings)
+            IIdentityService identity,
+            IOptions<AppSettings> appSettings,
+            ICurrentUserService currentUser)
         {
             this.userManager = userManager;
-            this.identityService = identityService;
+            this.identity = identity;
+            this.currentUser = currentUser;
             this.appSettings = appSettings.Value;
         }
 
@@ -61,7 +64,7 @@
                 return Unauthorized();
             }
 
-            var token = this.identityService.GenerateJwtToken(
+            var token = this.identity.GenerateJwtToken(
                 user.Id,
                 user.UserName,
                 this.appSettings.Secret);
@@ -77,9 +80,9 @@
         [Route(nameof(User))]
         public async Task<ActionResult<UserDetailsServiceModel>> UserDetails()
         {
-            var id = this.User.GetId();
+            var id = this.currentUser.GetId();
 
-            var user = await this.identityService.UserDetails(id);
+            var user = await this.identity.UserDetails(id);
 
             return user;
         }

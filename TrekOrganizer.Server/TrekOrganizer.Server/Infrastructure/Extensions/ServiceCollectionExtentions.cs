@@ -12,7 +12,8 @@
     using Features.Identity;
     using Features.Treks;
     using Microsoft.OpenApi.Models;
-    using TrekOrganizer.Server.Infrastructure.Filters;
+    using Filters;
+    using Services;
 
     public static class ServiceCollectionExtentions
     {
@@ -80,6 +81,7 @@
         {
             services
                 .AddTransient<IIdentityService, IdentityService>()
+                .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddTransient<ITrekService, TrekService>();
 
             return services;

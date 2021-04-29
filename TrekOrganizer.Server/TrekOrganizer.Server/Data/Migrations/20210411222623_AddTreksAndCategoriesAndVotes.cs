@@ -31,7 +31,7 @@ namespace TrekOrganizer.Server.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Votes_Treks_TrekId",
                         column: x => x.TrekId,

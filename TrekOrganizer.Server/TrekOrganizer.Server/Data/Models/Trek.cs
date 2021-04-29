@@ -2,8 +2,9 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using static Data.Validation.Trek;
-    public class Trek
+    using Base;
+    using static Validation.Trek;
+    public class Trek : DeletableEntity
     {
         public Trek()
         {

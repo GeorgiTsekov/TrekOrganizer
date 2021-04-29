@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
-    using TrekOrganizer.Server.Features.Treks.Models;
+    using Models;
 
     public class TrekService : ITrekService
     {

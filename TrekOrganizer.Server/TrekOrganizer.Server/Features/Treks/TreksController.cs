@@ -1,27 +1,30 @@
 ﻿namespace TrekOrganizer.Server.Features.Treks
 {
-    using Infrastructure.Extensions;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System.Collections;
     using System.Threading.Tasks;
-    using TrekOrganizer.Server.Features.Treks.Models;
-
+    using Models;
+    using Infrastructure.Services;
     using static Infrastructure.WebConstants;
 
     public class TreksController : ApiController
     {
-        private readonly ITrekService trekService;
+        private readonly ITrekService treks;
+        private readonly ICurrentUserService currentUser;
 
-        public TreksController(ITrekService trekService)
+        public TreksController(
+            ITrekService treks,
+            ICurrentUserService currentUser)
         {
-            this.trekService = trekService;
+            this.treks = treks;
+            this.currentUser = currentUser;
         }
 
         [HttpGet]
         public async Task<IEnumerable> ByCategory(string categoryName)
         {
-            return await this.trekService.ByCategory(categoryName);
+            return await this.treks.ByCategory(categoryName);
         }
 
         [Authorize]
@@ -29,9 +32,9 @@
         [Route(Id)]
         public async Task<ActionResult<TrekDetailsServiceModel>> Details(int id)
         {
-            var userId = this.User.GetId();
+            var userId = this.currentUser.GetId();
 
-            var trek = await this.trekService.Details(id, userId);
+            var trek = await this.treks.Details(id, userId);
 
             return trek;
         }
@@ -40,9 +43,9 @@
         [HttpPost]
         public async Task<ActionResult> Create(CreateTrekRequestModel model)
         {
-            var userId = this.User.GetId();
+            var userId = this.currentUser.GetId();
 
-            var id = await this.trekService.Create(
+            var id = await this.treks.Create(
                 model.Location, 
                 model.Description, 
                 model.ImageUrl,
@@ -59,9 +62,9 @@
         [Route(Id)]
         public async Task<ActionResult> Edit(EditTrekRequestModel model)
         {
-            var userId = this.User.GetId();
+            var userId = this.currentUser.GetId();
 
-            var updatedTrek = await this.trekService.Edit(
+            var updatedTrek = await this.treks.Edit(
                 model.Id,
                 model.Location,
                 model.Description,
@@ -84,9 +87,9 @@
         [Route(Id)]
         public async Task<ActionResult> Delete(int id)
         {
-            var userId = this.User.GetId();
+            var userId = this.currentUser.GetId();
 
-            var deleted = await this.trekService.Delete(id, userId);
+            var deleted = await this.treks.Delete(id, userId);
 
             if (!deleted)
             {

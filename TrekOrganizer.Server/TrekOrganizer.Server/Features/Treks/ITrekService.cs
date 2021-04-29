@@ -6,7 +6,7 @@
 
     public interface ITrekService
     {
-        public Task<int> Create(
+        Task<int> Create(
             string location, 
             string description, 
             string imageUrl,
@@ -15,11 +15,11 @@
             string categoryName, 
             string userId);
 
-        public Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName);
+        Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName);
 
-        public Task<TrekDetailsServiceModel> Details(int id, string userId);
+        Task<TrekDetailsServiceModel> Details(int id, string userId);
 
-        public Task<bool> Edit(
+        Task<bool> Edit(
             int id,
             string location,
             string description,
@@ -29,6 +29,6 @@
             string categoryName,
             string userId);
 
-        public Task<bool> Delete(int id, string userId);
+        Task<bool> Delete(int id, string userId);
     }
 }
