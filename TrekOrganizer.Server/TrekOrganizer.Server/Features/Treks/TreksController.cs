@@ -59,7 +59,6 @@
 
         [Authorize]
         [HttpPut]
-        [Route(Id)]
         public async Task<ActionResult> Edit(EditTrekRequestModel model)
         {
             var userId = this.currentUser.GetId();

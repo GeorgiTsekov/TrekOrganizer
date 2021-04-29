@@ -19,7 +19,7 @@ function EditTrek(props){
         const { categoryName, location, startDate, endDate, description, imageUrl } = e.target;
         let updatedTrek = { ...trek, categoryName: categoryName.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageUrl: imageUrl.value, id: trekId };
 
-        axios.put(`treks/${trekId}`, updatedTrek)
+        axios.put(`treks`, updatedTrek)
             .then(res => {
                 this.setTrek(res.updatedTrek)
             })
