@@ -3,7 +3,6 @@
     using Microsoft.AspNetCore.Identity;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using Base;
 
     public class User : IdentityUser, IEntity
@@ -14,6 +13,7 @@
             this.Treks = new HashSet<Trek>();
             this.Votes = new HashSet<Vote>();
         }
+
         public DateTime CreatedOn { get; set; }
 
         public string CreatedBy { get; set; }
@@ -21,6 +21,8 @@
         public DateTime? ModifiedOn { get; set; }
 
         public string ModifiedBy { get; set; }
+
+        public Profile Profile { get; set; }
 
         public IEnumerable<Trek> Treks { get; }
 

@@ -15,7 +15,7 @@
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(MaxLocationLength)]
         public string Location { get; set; }
 
         [Required]

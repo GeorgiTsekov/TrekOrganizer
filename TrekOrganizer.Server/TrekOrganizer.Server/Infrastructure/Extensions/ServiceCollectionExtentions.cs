@@ -14,6 +14,7 @@
     using Microsoft.OpenApi.Models;
     using Filters;
     using Services;
+    using Features.Profiles;
 
     public static class ServiceCollectionExtentions
     {
@@ -80,8 +81,9 @@
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services
-                .AddTransient<IIdentityService, IdentityService>()
                 .AddScoped<ICurrentUserService, CurrentUserService>()
+                .AddTransient<IIdentityService, IdentityService>()
+                .AddTransient<IProfileService, ProfileService>()
                 .AddTransient<ITrekService, TrekService>();
 
             return services;

@@ -28,6 +28,8 @@
 
         public DbSet<Vote> Votes { get; set; }
 
+        //public DbSet<Profile> Profiles { get; set; }
+
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             this.ApplyAuditInformation();
@@ -65,6 +67,10 @@
                 .WithMany(t => t.Votes)
                 .HasForeignKey(v => v.TrekId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Entity<User>()
+                .OwnsOne(u => u.Profile);
 
             base.OnModelCreating(builder);
         }

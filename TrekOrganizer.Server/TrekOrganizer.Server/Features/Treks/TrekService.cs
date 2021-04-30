@@ -44,6 +44,7 @@
             {
                 var treks = this.data
                 .Treks
+                .OrderByDescending(t => t.CreatedOn)
                 .Select(t => new TrekListingServiceModel
                 {
                     Id = t.Id,
@@ -62,6 +63,7 @@
                 var treksByCategory = this.data
                     .Treks
                     .Where(t => t.CategoryId == categoryId)
+                    .OrderByDescending(t => t.CreatedOn)
                     .Select(t => new TrekListingServiceModel
                     {
                         Id = t.Id,
