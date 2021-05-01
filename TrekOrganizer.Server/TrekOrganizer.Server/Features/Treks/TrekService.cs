@@ -7,6 +7,7 @@
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
     using Models;
+    using Infrastructure.Services;
 
     public class TrekService : ITrekService
     {
@@ -59,7 +60,6 @@
             else
             {
                 var categoryId = this.data.Categories.FirstOrDefault(c => c.Name == categoryName).Id;
-
                 var treksByCategory = this.data
                     .Treks
                     .Where(t => t.CategoryId == categoryId)
@@ -100,7 +100,7 @@
             return await trek;
         }
 
-        public async Task<bool> Edit(
+        public async Task<Result> Edit(
             int id,
             string location, 
             string description,
@@ -114,7 +114,7 @@
 
             if (trek == null)
             {
-                return false;
+                return "You are not authorized to update this trek!";
             }
 
             trek.Location = location;
@@ -128,13 +128,12 @@
             return true;
         }
 
-        public async Task<bool> Delete(int id, string userId)
+        public async Task<Result> Delete(int id, string userId)
         {
             var trek = await this.GetByIdAndByUserId(id, userId);
-
             if (trek == null)
             {
-                return false;
+                return "You are not authorized to delete this trek!";
             }
 
             this.data.Treks.Remove(trek);

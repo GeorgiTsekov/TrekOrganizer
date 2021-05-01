@@ -166,6 +166,36 @@ namespace TrekOrganizer.Server.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Profile", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Biography")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsPrivate")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MainPhotoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("WebSite")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Profiles");
+                });
+
             modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Trek", b =>
                 {
                     b.Property<int>("Id")
@@ -389,6 +419,15 @@ namespace TrekOrganizer.Server.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Profile", b =>
+                {
+                    b.HasOne("TrekOrganizer.Server.Data.Models.User", null)
+                        .WithOne("Profile")
+                        .HasForeignKey("TrekOrganizer.Server.Data.Models.Profile", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Trek", b =>
                 {
                     b.HasOne("TrekOrganizer.Server.Data.Models.Category", "Category")
@@ -406,44 +445,6 @@ namespace TrekOrganizer.Server.Data.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("TrekOrganizer.Server.Data.Models.User", b =>
-                {
-                    b.OwnsOne("TrekOrganizer.Server.Data.Models.Profile", "Profile", b1 =>
-                        {
-                            b1.Property<string>("UserId")
-                                .HasColumnType("nvarchar(450)");
-
-                            b1.Property<string>("Biography")
-                                .HasMaxLength(150)
-                                .HasColumnType("nvarchar(150)");
-
-                            b1.Property<int>("Gender")
-                                .HasColumnType("int");
-
-                            b1.Property<bool>("IsPrivate")
-                                .HasColumnType("bit");
-
-                            b1.Property<string>("MainPhotoUrl")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Name")
-                                .HasMaxLength(40)
-                                .HasColumnType("nvarchar(40)");
-
-                            b1.Property<string>("WebSite")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.HasKey("UserId");
-
-                            b1.ToTable("AspNetUsers");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.Navigation("Profile");
                 });
 
             modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Vote", b =>
@@ -477,6 +478,8 @@ namespace TrekOrganizer.Server.Data.Migrations
 
             modelBuilder.Entity("TrekOrganizer.Server.Data.Models.User", b =>
                 {
+                    b.Navigation("Profile");
+
                     b.Navigation("Treks");
 
                     b.Navigation("Votes");

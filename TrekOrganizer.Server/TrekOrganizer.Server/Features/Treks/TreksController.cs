@@ -59,12 +59,13 @@
 
         [Authorize]
         [HttpPut]
-        public async Task<ActionResult> Edit(EditTrekRequestModel model)
+        [Route(Id)]
+        public async Task<ActionResult> Edit(int id, EditTrekRequestModel model)
         {
             var userId = this.currentUser.GetId();
 
-            var updatedTrek = await this.treks.Edit(
-                model.Id,
+            var result = await this.treks.Edit(
+                id,
                 model.Location,
                 model.Description,
                 model.ImageUrl,
@@ -73,7 +74,7 @@
                 model.CategoryName,
                 userId);
 
-            if (!updatedTrek)
+            if (result.Failure)
             {
                 return BadRequest();
             }
@@ -88,9 +89,8 @@
         {
             var userId = this.currentUser.GetId();
 
-            var deleted = await this.treks.Delete(id, userId);
-
-            if (!deleted)
+            var result = await this.treks.Delete(id, userId);
+            if (result.Failure)
             {
                 return BadRequest();
             }

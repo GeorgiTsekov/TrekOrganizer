@@ -28,7 +28,7 @@
 
         public DbSet<Vote> Votes { get; set; }
 
-        //public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
@@ -62,15 +62,18 @@
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
+                .Entity<User>()
+                .HasOne(u => u.Profile)
+                .WithOne()
+                .HasForeignKey<Profile>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
                 .Entity<Vote>()
                 .HasOne(v => v.Trek)
                 .WithMany(t => t.Votes)
                 .HasForeignKey(v => v.TrekId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder
-                .Entity<User>()
-                .OwnsOne(u => u.Profile);
 
             base.OnModelCreating(builder);
         }

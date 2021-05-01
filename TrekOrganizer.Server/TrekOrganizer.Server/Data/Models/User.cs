@@ -9,7 +9,6 @@
     {
         public User()
         {
-            this.Id = Guid.NewGuid().ToString();
             this.Treks = new HashSet<Trek>();
             this.Votes = new HashSet<Vote>();
         }

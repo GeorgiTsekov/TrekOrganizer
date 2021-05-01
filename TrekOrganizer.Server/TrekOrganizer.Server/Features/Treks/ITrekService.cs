@@ -2,7 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using TrekOrganizer.Server.Features.Treks.Models;
+    using Models;
+    using Infrastructure.Services;
 
     public interface ITrekService
     {
@@ -19,7 +20,7 @@
 
         Task<TrekDetailsServiceModel> Details(int id, string userId);
 
-        Task<bool> Edit(
+        Task<Result> Edit(
             int id,
             string location,
             string description,
@@ -29,6 +30,6 @@
             string categoryName,
             string userId);
 
-        Task<bool> Delete(int id, string userId);
+        Task<Result> Delete(int id, string userId);
     }
 }

@@ -1,14 +1,15 @@
-﻿namespace TrekOrganizer.Server.Data.Models
+﻿namespace TrekOrganizer.Server.Features.Profiles.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using Data.Models;
+    using static Data.Validation.User;
 
-    using static Validation.User;
-
-    public class Profile
+    public class UpdateProfileRequestModel
     {
-        [Key]
-        [Required]
-        public string UserId { get; set; }
+        public string UserName { get; set; }
+
+        [EmailAddress]
+        public string Email { get; set; }
 
         [MaxLength(MaxNameLength)]
         public string Name { get; set; }
@@ -22,7 +23,6 @@
 
         public Gender Gender { get; set; }
 
-        public bool? IsPrivate { get; set; }
-
+        public bool IsPrivate { get; set; }
     }
 }

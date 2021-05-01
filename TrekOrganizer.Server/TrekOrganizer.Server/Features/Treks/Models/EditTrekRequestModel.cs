@@ -4,7 +4,5 @@
 
     public class EditTrekRequestModel : CreateTrekRequestModel
     {
-        [Required]
-        public int Id { get; set; }
     }
 }
