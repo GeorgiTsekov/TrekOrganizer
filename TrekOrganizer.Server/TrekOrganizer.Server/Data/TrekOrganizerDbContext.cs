@@ -26,6 +26,8 @@
 
         public DbSet<Trek> Treks { get; set; }
 
+        public DbSet<Follow> Follows { get; set; }
+
         public DbSet<Vote> Votes { get; set; }
 
         public DbSet<Profile> Profiles { get; set; }
@@ -68,11 +70,25 @@
                 .HasForeignKey<Profile>(p => p.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            //builder
+            //    .Entity<Vote>()
+            //    .HasOne(v => v.Trek)
+            //    .WithMany(t => t.Votes)
+            //    .HasForeignKey(v => v.TrekId)
+            //    .OnDelete(DeleteBehavior.Restrict);
+
             builder
-                .Entity<Vote>()
-                .HasOne(v => v.Trek)
-                .WithMany(t => t.Votes)
-                .HasForeignKey(v => v.TrekId)
+                .Entity<Follow>()
+                .HasOne(f => f.User)
+                .WithMany()
+                .HasForeignKey(f => f.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Entity<Follow>()
+                .HasOne(f => f.Follower)
+                .WithMany()
+                .HasForeignKey(f => f.FollowerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);

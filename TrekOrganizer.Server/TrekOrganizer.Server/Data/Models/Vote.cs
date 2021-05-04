@@ -7,9 +7,9 @@
         [Key]
         public int Id { get; set; }
 
-        public int TrekId { get; set; }
+        //public int TrekId { get; set; }
 
-        public virtual Trek Trek { get; set; }
+        //public virtual Trek Trek { get; set; }
 
         [Required]
         public string UserId { get; set; }

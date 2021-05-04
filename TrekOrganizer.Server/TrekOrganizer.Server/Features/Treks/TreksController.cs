@@ -21,13 +21,13 @@
             this.currentUser = currentUser;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IEnumerable> ByCategory(string categoryName)
         {
             return await this.treks.ByCategory(categoryName);
         }
 
-        [Authorize]
         [HttpGet]
         [Route(Id)]
         public async Task<ActionResult<TrekDetailsServiceModel>> Details(int id)
@@ -39,7 +39,6 @@
             return trek;
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<ActionResult> Create(CreateTrekRequestModel model)
         {
@@ -57,7 +56,6 @@
             return Created(nameof(this.Create), id);
         }
 
-        [Authorize]
         [HttpPut]
         [Route(Id)]
         public async Task<ActionResult> Edit(int id, EditTrekRequestModel model)
@@ -82,7 +80,6 @@
             return Ok();
         }
 
-        [Authorize]
         [HttpDelete]
         [Route(Id)]
         public async Task<ActionResult> Delete(int id)

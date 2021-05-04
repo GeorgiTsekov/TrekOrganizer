@@ -20,14 +20,12 @@
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult<ProfileServiceModel>> Mine()
         {
             return await this.profiles.ByUser(this.currentUser.GetId());
         }
 
         [HttpPut]
-        [Authorize]
         public async Task<ActionResult> Edit(UpdateProfileRequestModel model)
         {
             var userId = this.currentUser.GetId();

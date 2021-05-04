@@ -22,7 +22,7 @@
 
         public Gender Gender { get; set; }
 
-        public bool? IsPrivate { get; set; }
+        public bool IsPrivate { get; set; }
 
     }
 }

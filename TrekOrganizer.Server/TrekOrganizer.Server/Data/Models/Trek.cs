@@ -8,7 +8,7 @@
     {
         public Trek()
         {
-            this.Votes = new HashSet<Vote>();
+            //this.Votes = new HashSet<Vote>();
         }
 
         [Key]
@@ -42,6 +42,6 @@
 
         public virtual User User { get; set; }
 
-        public IEnumerable<Vote> Votes { get; }
+        //public IEnumerable<Vote> Votes { get; }
     }
 }

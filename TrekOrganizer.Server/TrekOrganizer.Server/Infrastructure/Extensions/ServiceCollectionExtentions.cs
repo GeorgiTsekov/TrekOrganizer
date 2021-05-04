@@ -15,6 +15,8 @@
     using Filters;
     using Services;
     using Features.Profiles;
+    using TrekOrganizer.Server.Features.Follows;
+    using TrekOrganizer.Server.Features.Search;
 
     public static class ServiceCollectionExtentions
     {
@@ -84,7 +86,9 @@
                 .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddTransient<IIdentityService, IdentityService>()
                 .AddTransient<IProfileService, ProfileService>()
-                .AddTransient<ITrekService, TrekService>();
+                .AddTransient<ITrekService, TrekService>()
+                .AddTransient<ISearchService, SearchService>()
+                .AddTransient<IFollowService, FollowService>();
 
             return services;
         }
