@@ -184,16 +184,11 @@ namespace TrekOrganizer.Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("UserId1")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("FollowerId");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("Follows");
                 });
@@ -374,27 +369,6 @@ namespace TrekOrganizer.Server.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Vote", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("Like")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Votes");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -460,10 +434,6 @@ namespace TrekOrganizer.Server.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TrekOrganizer.Server.Data.Models.User", null)
-                        .WithMany("Follows")
-                        .HasForeignKey("UserId1");
-
                     b.Navigation("Follower");
 
                     b.Navigation("User");
@@ -497,17 +467,6 @@ namespace TrekOrganizer.Server.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Vote", b =>
-                {
-                    b.HasOne("TrekOrganizer.Server.Data.Models.User", "User")
-                        .WithMany("Votes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Category", b =>
                 {
                     b.Navigation("Treks");
@@ -515,13 +474,9 @@ namespace TrekOrganizer.Server.Data.Migrations
 
             modelBuilder.Entity("TrekOrganizer.Server.Data.Models.User", b =>
                 {
-                    b.Navigation("Follows");
-
                     b.Navigation("Profile");
 
                     b.Navigation("Treks");
-
-                    b.Navigation("Votes");
                 });
 #pragma warning restore 612, 618
         }

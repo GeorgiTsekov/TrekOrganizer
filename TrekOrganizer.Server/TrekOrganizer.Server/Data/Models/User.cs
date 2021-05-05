@@ -10,8 +10,7 @@
         public User()
         {
             this.Treks = new HashSet<Trek>();
-            this.Votes = new HashSet<Vote>();
-            this.Follows = new HashSet<Follow>();
+            //this.Votes = new HashSet<Vote>();
         }
 
         public DateTime CreatedOn { get; set; }
@@ -24,10 +23,8 @@
 
         public Profile Profile { get; set; }
 
-        public IEnumerable<Trek> Treks { get; }
+        public virtual IEnumerable<Trek> Treks { get; }
 
-        public IEnumerable<Vote> Votes { get; }
-
-        public IEnumerable<Follow> Follows { get; }
+        //public virtual IEnumerable<Vote> Votes { get; }
     }
 }

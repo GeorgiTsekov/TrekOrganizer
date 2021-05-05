@@ -1,6 +1,5 @@
 ﻿namespace TrekOrganizer.Server.Features.Follows
 {
-    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using Infrastructure.Services;
@@ -44,6 +43,15 @@
             await this.data.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<bool> IsFollower(string userId, string followerId)
+        {
+            return await this.data
+                .Follows
+                .AnyAsync(f => f.UserId == userId &&
+                    f.FollowerId == followerId &&
+                    f.IsApproved);
         }
     }
 }

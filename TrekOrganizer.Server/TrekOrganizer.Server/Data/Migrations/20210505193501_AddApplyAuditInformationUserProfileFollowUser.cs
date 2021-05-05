@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TrekOrganizer.Server.Data.Migrations
 {
-    public partial class AuditInformation : Migration
+    public partial class AddApplyAuditInformationUserProfileFollowUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,6 +39,13 @@ namespace TrekOrganizer.Server.Data.Migrations
                 nullable: false,
                 defaultValue: false);
 
+            migrationBuilder.AddColumn<int>(
+                name: "Likes",
+                table: "Treks",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.AddColumn<string>(
                 name: "ModifiedBy",
                 table: "Treks",
@@ -75,10 +82,76 @@ namespace TrekOrganizer.Server.Data.Migrations
                 table: "AspNetUsers",
                 type: "datetime2",
                 nullable: true);
+
+            migrationBuilder.CreateTable(
+                name: "Follows",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FollowerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IsApproved = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Follows", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Follows_AspNetUsers_FollowerId",
+                        column: x => x.FollowerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Follows_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Profiles",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
+                    MainPhotoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WebSite = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Biography = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
+                    Gender = table.Column<int>(type: "int", nullable: false),
+                    IsPrivate = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Profiles", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_Profiles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Follows_FollowerId",
+                table: "Follows",
+                column: "FollowerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Follows_UserId",
+                table: "Follows",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Follows");
+
+            migrationBuilder.DropTable(
+                name: "Profiles");
+
             migrationBuilder.DropColumn(
                 name: "CreatedBy",
                 table: "Treks");
@@ -97,6 +170,10 @@ namespace TrekOrganizer.Server.Data.Migrations
 
             migrationBuilder.DropColumn(
                 name: "IsDeleted",
+                table: "Treks");
+
+            migrationBuilder.DropColumn(
+                name: "Likes",
                 table: "Treks");
 
             migrationBuilder.DropColumn(

@@ -28,7 +28,7 @@
 
         public DbSet<Follow> Follows { get; set; }
 
-        public DbSet<Vote> Votes { get; set; }
+        //public DbSet<Vote> Votes { get; set; }
 
         public DbSet<Profile> Profiles { get; set; }
 
@@ -63,19 +63,19 @@
                 .HasForeignKey(t => t.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder
-                .Entity<User>()
-                .HasOne(u => u.Profile)
-                .WithOne()
-                .HasForeignKey<Profile>(p => p.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             //builder
             //    .Entity<Vote>()
             //    .HasOne(v => v.Trek)
             //    .WithMany(t => t.Votes)
             //    .HasForeignKey(v => v.TrekId)
             //    .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Entity<User>()
+                .HasOne(u => u.Profile)
+                .WithOne()
+                .HasForeignKey<Profile>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .Entity<Follow>()
@@ -95,8 +95,7 @@
         }
 
         private void ApplyAuditInformation()
-        {
-            this.ChangeTracker
+            => this.ChangeTracker
                 .Entries()
                 .ToList()
                 .ForEach(entry =>
@@ -131,6 +130,5 @@
                         }
                     }
                 });
-        }
     }
 }

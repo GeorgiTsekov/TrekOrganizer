@@ -30,7 +30,7 @@
 
         [HttpGet]
         [Route(Id)]
-        public async Task<ActionResult<TrekDetailsServiceModel>> Details(int id)
+        public async Task<TrekDetailsServiceModel> Details(int id)
         {
             var userId = this.currentUser.GetId();
 
