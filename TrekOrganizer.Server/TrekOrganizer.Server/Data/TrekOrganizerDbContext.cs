@@ -28,7 +28,7 @@
 
         public DbSet<Follow> Follows { get; set; }
 
-        //public DbSet<Vote> Votes { get; set; }
+        public DbSet<Vote> Votes { get; set; }
 
         public DbSet<Profile> Profiles { get; set; }
 
@@ -63,12 +63,19 @@
                 .HasForeignKey(t => t.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            //builder
-            //    .Entity<Vote>()
-            //    .HasOne(v => v.Trek)
-            //    .WithMany(t => t.Votes)
-            //    .HasForeignKey(v => v.TrekId)
-            //    .OnDelete(DeleteBehavior.Restrict);
+            builder
+                .Entity<Trek>()
+                .HasMany(f => f.Votes)
+                .WithOne()
+                .HasForeignKey(f => f.TrekId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Entity<Vote>()
+                .HasOne(f => f.User)
+                .WithMany()
+                .HasForeignKey(f => f.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .Entity<User>()

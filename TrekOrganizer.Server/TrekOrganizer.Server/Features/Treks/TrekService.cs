@@ -102,7 +102,7 @@
 
         public async Task<Result> Edit(
             int id,
-            string location, 
+            string location,
             string description,
             string imageUrl,
             string startDate,
@@ -137,6 +137,32 @@
             }
 
             this.data.Treks.Remove(trek);
+
+            await this.data.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<Result> Like(int id, string userId)
+        {
+            var trek = await this.data
+                .Treks
+                .Where(t => t.Id == id && !t.Votes.Any(v => v.UserId == userId))
+                .FirstOrDefaultAsync();
+
+            if (trek == null)
+            {
+                return "You liked already this trek!";
+            }
+
+            this.data.Votes.Add(new Vote
+            {
+                TrekId = id,
+                UserId = userId,
+                IsLiked = true
+            });
+
+            trek.Likes++;
 
             await this.data.SaveChangesAsync();
 

@@ -6,10 +6,10 @@
     using static Validation.Trek;
     public class Trek : DeletableEntity
     {
-        //public Trek()
-        //{
-        //    this.Votes = new HashSet<Vote>();
-        //}
+        public Trek()
+        {
+            this.Votes = new HashSet<Vote>();
+        }
 
         [Key]
         public int Id { get; set; }
@@ -42,6 +42,6 @@
 
         public virtual User User { get; set; }
 
-        //public IEnumerable<Vote> Votes { get; }
+        public IEnumerable<Vote> Votes { get; }
     }
 }

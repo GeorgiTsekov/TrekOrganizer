@@ -80,6 +80,24 @@
             return Ok();
         }
 
+        [HttpPut]
+        [Route(nameof(Like))]
+        public async Task<ActionResult> Like(int id)
+        {
+            var userId = this.currentUser.GetId();
+
+            var result = await this.treks.Like(
+                id,
+                userId);
+
+            if (result.Failure)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
         [HttpDelete]
         [Route(Id)]
         public async Task<ActionResult> Delete(int id)

@@ -31,5 +31,7 @@
             string userId);
 
         Task<Result> Delete(int id, string userId);
+
+        Task<Result> Like(int id, string userId);
     }
 }

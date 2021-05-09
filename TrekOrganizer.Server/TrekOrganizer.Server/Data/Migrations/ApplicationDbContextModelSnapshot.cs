@@ -369,6 +369,44 @@ namespace TrekOrganizer.Server.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Vote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsLiked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TrekId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrekId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Votes");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -467,9 +505,31 @@ namespace TrekOrganizer.Server.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Vote", b =>
+                {
+                    b.HasOne("TrekOrganizer.Server.Data.Models.Trek", null)
+                        .WithMany("Votes")
+                        .HasForeignKey("TrekId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("TrekOrganizer.Server.Data.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Category", b =>
                 {
                     b.Navigation("Treks");
+                });
+
+            modelBuilder.Entity("TrekOrganizer.Server.Data.Models.Trek", b =>
+                {
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("TrekOrganizer.Server.Data.Models.User", b =>

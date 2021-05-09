@@ -17,9 +17,9 @@ function EditTrek(props){
         e.preventDefault();
 
         const { categoryName, location, startDate, endDate, description, imageUrl } = e.target;
-        let updatedTrek = { ...trek, categoryName: categoryName.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageUrl: imageUrl.value, id: trekId };
+        let updatedTrek = { ...trek, categoryName: categoryName.value, location: location.value, startDate: startDate.value, endDate: endDate.value, description: description.value, imageUrl: imageUrl.value };
 
-        axios.put(`treks`, updatedTrek)
+        axios.put(`treks/${trekId}`, updatedTrek)
             .then(res => {
                 this.setTrek(res.updatedTrek)
             })
