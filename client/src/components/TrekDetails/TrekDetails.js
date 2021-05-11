@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as trekService from '../../services/trekService';
 import './TrekDetails.css';
 import axios from 'axios';
 
@@ -10,14 +9,19 @@ function TrekDetails(props) {
     useEffect(() => {
         axios.get(`treks/${trekId}`)
             .then(res => setTrek(res.data))
-            .catch(error => {console.log(error.response.data.errors)})
+            .catch(error => { console.log(error.response.data.errors) })
     }, []);
 
-    const onTrekButtonClickHandler = () => {
-        let incrementedLikes = trek.likes + 1;
-        trekService.like(trekId, incrementedLikes)
+    const onTrekButtonClickHandler = (e) => {
+        e.preventDefault();
+
+        axios.put(`treks/like/${trekId}`)
             .then(() => {
-                setTrek(state => ({ ...state, likes: incrementedLikes }))
+                setTrek(state => ({ ...state, likes: trek.likes + 1 }))
+            })
+            .catch(error => { console.log(error.response) })
+            .then(() => {
+                props.history.push(`/treks/${trekId}`);
             });
     };
 

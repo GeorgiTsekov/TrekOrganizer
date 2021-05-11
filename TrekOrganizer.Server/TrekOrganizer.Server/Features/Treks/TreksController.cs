@@ -81,7 +81,7 @@
         }
 
         [HttpPut]
-        [Route(nameof(Like))]
+        [Route("Like/{id}")]
         public async Task<ActionResult> Like(int id)
         {
             var userId = this.currentUser.GetId();
