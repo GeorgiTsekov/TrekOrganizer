@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import * as trekService from '../../services/trekService';
+import axios from 'axios';
 
 import './Categories.css'
 
@@ -17,8 +17,14 @@ class Categories extends Component {
     }
 
     componentDidMount() {
-        trekService.getAll()
-            .then(res => this.setState({ treks: res }));
+        axios.get('treks').then(
+            res => {
+                this.setState({ treks: res.data });
+            },
+            err => {
+                console.log(err.response);
+            }
+        )
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -27,9 +33,9 @@ class Categories extends Component {
         if (prevProps.match.params.category == category) {
             return;
         }
-
-        trekService.getAll(category)
-            .then(res => this.setState({ treks: res, currentCategory: category }));
+        let currentCategory = (category && category != 'All') ? `?categoryName=${category}` : '';
+        axios.get(`treks/${currentCategory}`)
+            .then(res => this.setState({ treks: res.data, currentCategory: category }));
     }
 
     render() {

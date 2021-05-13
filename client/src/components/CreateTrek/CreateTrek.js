@@ -17,9 +17,7 @@ const CreateTrek = ({
             startDate: startDate.value,
             endDate: endDate.value,
             description: description.value,
-            imageUrl: imageUrl.value,
-            // organizer: userEvent.userName
-            // createdOn: Date.UTC(),
+            imageUrl: imageUrl.value
         }
 
         return axios.post(`treks`, trek)

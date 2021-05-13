@@ -13,23 +13,24 @@ import Register from './components/Register/Register';
 import DeleteTrek from './components/DeleteTrek/DeleteTrek';
 import axios from 'axios';
 
-import style from './App.module.css';
+import './App.css';
 
 export default class App extends Component {
   state = {};
 
-  componentDidMount() {
+  componentDidMount = () => {
     axios.get('identity/user').then(
       res => {
+        console.log(res)
         this.setUser(res.data);
       },
       err => {
-        console.log(err);
+        console.log(err.response);
       }
     )
   };
 
-  setUser = (user) => {
+  setUser = user => {
     this.setState({
       user: user
     });
@@ -37,14 +38,14 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className={style.app}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <div className="App">
 
           <Header user={this.state.user} setUser={this.setUser} />
 
           <Switch>
             <Route exact path="/" component={() => <Home user={this.state.user} />} />
-            <Route exact path="/login" component={() => <Login setUser={this.setUser}/>} />
+            <Route exact path="/login" component={() => <Login setUser={this.setUser} />} />
             <Route exact path="/register" component={Register} />
             <Route path="/categories/:category" component={Categories} />
             <Route path="/treks/:trekId" component={TrekDetails} />
@@ -54,10 +55,10 @@ export default class App extends Component {
           </Switch>
 
           <Footer />
+        </div>
 
-        </BrowserRouter>
+      </BrowserRouter>
 
-      </div>
     );
   }
 }
