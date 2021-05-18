@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default class Login extends Component {
   state = {};
 
-  submit = e => {
+  submit = async (e) => {
     e.preventDefault();
 
     const data = {
@@ -14,7 +14,7 @@ export default class Login extends Component {
       password: this.password,
     };
 
-    axios.post('Identity/login', data)
+    await axios.post('Identity/login', data)
       .then(res => {
         localStorage.setItem('token', res.data.token);
         this.setState({

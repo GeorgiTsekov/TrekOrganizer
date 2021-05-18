@@ -21,7 +21,6 @@ export default class App extends Component {
   componentDidMount = () => {
     axios.get('identity/user').then(
       res => {
-        console.log(res)
         this.setUser(res.data);
       },
       err => {

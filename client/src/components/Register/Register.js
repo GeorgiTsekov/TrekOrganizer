@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default class Register extends Component {
     state = {};
     
-    submit = (e) => {
+    submit = async (e) => {
         e.preventDefault();
 
         const data = {
@@ -16,7 +16,7 @@ export default class Register extends Component {
             password: this.password,
         };
 
-        axios.post('Identity/register', data)
+        await axios.post('Identity/register', data)
             .then(res => {
                 console.log(res)
                 this.setState({

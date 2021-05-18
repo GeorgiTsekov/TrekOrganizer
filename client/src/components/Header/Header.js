@@ -5,7 +5,7 @@ import { Component } from 'react';
 export default class Header extends Component {
 
     handleLogout = () => {
-        localStorage.clear();
+        localStorage.clear("token");
         this.props.setUser(null);
     };
 
@@ -15,18 +15,18 @@ export default class Header extends Component {
         if (this.props.user) {
             buttons = (
                 <div className={style.container}>
-                    <Link className="py-2 d-none d-md-inline-block" to="/categories/All">Request Trek</Link>
-                    <Link className="py-2 d-none d-md-inline-block" to="#">Hello, {this.props.user.userName}</Link>
-                    <Link className="py-2 d-none d-md-inline-block" to="/create/treks">Create Trek</Link>
-                    <Link className="py-2 d-none d-md-inline-block" to="/" onClick={this.handleLogout}>Logout</Link>
+                    <Link to="/categories/All" className="py-2 d-none d-md-inline-block">Request Trek</Link>
+                    <Link to="#" className="py-2 d-none d-md-inline-block">Hello, {this.props.user.userName}</Link>
+                    <Link to="/create/treks" className="py-2 d-none d-md-inline-block">Create Trek</Link>
+                    <Link to="/" className="py-2 d-none d-md-inline-block" onClick={this.handleLogout}>Logout</Link>
                 </div>
             )
 
         } else {
             buttons = (
                 <div className={style.container}>
-                    <Link className="py-2 d-none d-md-inline-block" to="/login">Login</Link>
-                    <Link className="py-2 d-none d-md-inline-block" to="/register">Register</Link>
+                    <Link to="/login" className="py-2 d-none d-md-inline-block">Login</Link>
+                    <Link to="/register" className="py-2 d-none d-md-inline-block">Register</Link>
                 </div>
             )
 
@@ -35,7 +35,7 @@ export default class Header extends Component {
         return (
             <nav className={style.header}>
                 <div className={style.container}>
-                    <Link className="py-2" to="/"><i class="fas fa-hiking"></i></Link>
+                    <Link className="py-2" to="/"><i className="fas fa-hiking"></i></Link>
                 </div>
                 {buttons}
             </nav>

@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-function DeleteTrek(props){
-    let trekId = props.match.params.trekId;
+const DeleteTrek = ({
+    history,
+    match
+}) => {
+    let trekId = match.params.trekId;
 
     const onDeleteTrekSubmitHandler = (e) => {
         e.preventDefault();
@@ -12,7 +15,7 @@ function DeleteTrek(props){
             })
             .catch(error => { console.log(error.data) })
             .then(() => {
-                props.history.push('/categories/All');
+                history.push('/categories/All');
             });
     }
 

@@ -2,16 +2,19 @@ import { useEffect, useState } from 'react';
 import '../CreateTrek/CreateTrek.css';
 import axios from 'axios';
 
-function EditTrek(props){
+const EditTrek = ({
+    history,
+    match
+}) => {
     const [trek, setTrek] = useState({});
 
-    let trekId = props.match.params.trekId;
+    let trekId = match.params.trekId;
 
     useEffect(() => {
         axios.get(`treks/${trekId}`)
             .then(res => setTrek(res.data))
             .catch(error => { console.log(error.response.data.errors) })
-    }, [props.match]);
+    }, [match]);
 
     const onEditTrekSubmitHandler = (e) => {
         e.preventDefault();
@@ -25,7 +28,7 @@ function EditTrek(props){
             })
             .catch(error => { console.log(error.data) })
             .then(() => {
-                props.history.push(`/treks/${trekId}`);
+                history.push(`/treks/${trekId}`);
             });
     }
 

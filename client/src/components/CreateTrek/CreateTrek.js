@@ -1,6 +1,6 @@
 import './CreateTrek.css';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const CreateTrek = ({
     history,

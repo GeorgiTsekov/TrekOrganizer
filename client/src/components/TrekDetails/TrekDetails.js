@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import './TrekDetails.css';
 import axios from 'axios';
 
-function TrekDetails(props) {
+const TrekDetails = ({
+    history,
+    match
+}) => {
     let [trek, setTrek] = useState({});
-    const trekId = props.match.params.trekId;
+    const trekId = match.params.trekId;
     useEffect(() => {
         axios.get(`treks/${trekId}`)
             .then(res => setTrek(res.data))
@@ -21,7 +24,7 @@ function TrekDetails(props) {
             })
             .catch(error => { console.log(error.response) })
             .then(() => {
-                props.history.push(`/treks/${trekId}`);
+                history.push(`/treks/${trekId}`);
             });
     };
 

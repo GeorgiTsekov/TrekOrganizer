@@ -27,13 +27,13 @@ class Categories extends Component {
         )
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         const category = this.props.match.params.category;
 
-        if (prevProps.match.params.category == category) {
+        if (prevProps.match.params.category === category) {
             return;
         }
-        let currentCategory = (category && category != 'All') ? `?categoryName=${category}` : '';
+        let currentCategory = (category && category !== 'All') ? `?categoryName=${category}` : '';
         axios.get(`treks/${currentCategory}`)
             .then(res => this.setState({ treks: res.data, currentCategory: category }));
     }
