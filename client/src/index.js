@@ -6,10 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://localhost:44385/';
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+if (localStorage.getItem('token')) {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+}
+else {
+  delete axios.defaults.headers.common['Authorization'];
+}
 
 ReactDOM.render(
-      <App />,
+  <App />,
   document.getElementById('root')
 );
 

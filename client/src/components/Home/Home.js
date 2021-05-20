@@ -11,7 +11,7 @@ export default class Home extends Component {
             <h2>Hi {this.props.user.userName} {this.props.user.email} {this.props.user.id}</h2>
           </div>
           <div className="col-md-5">
-            <img className="home-picture" src="/mountainLogo.png" />
+            <img className="home-picture" src="/mountainLogo.png" alt="" />
           </div>
         </div>
       )
@@ -27,7 +27,7 @@ export default class Home extends Component {
             <p className="lead">If you find enough supporters, we will organize everything for you!</p>
           </div>
           <div className="col-md-5">
-            <img className="home-picture" src="/mountainLogo.png" />
+            <img className="home-picture" src="/mountainLogo.png" alt="" />
           </div>
         </div>
       );

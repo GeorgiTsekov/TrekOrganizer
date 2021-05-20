@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default class Login extends Component {
   state = {};
 
-  submit = async (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = {
@@ -14,13 +14,13 @@ export default class Login extends Component {
       password: this.password,
     };
 
-    await axios.post('Identity/login', data)
+   await axios.post('Identity/login', data)
       .then(res => {
         localStorage.setItem('token', res.data.token);
         this.setState({
           loggedIn: true
         });
-        this.props.setUser(res.data.user);
+        this.props.setUser(res.data.user)
       })
       .catch(err => {
         console.log(err);
@@ -34,7 +34,7 @@ export default class Login extends Component {
     }
 
     return (
-      <form onSubmit={this.submit}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           <p>Username</p>
           <input type="text" onChange={e => this.userName = e.target.value} />
@@ -54,3 +54,12 @@ export default class Login extends Component {
     )
   }
 }
+function getAccessToken(){
+  return localStorage.getItem('token');
+}
+
+// Use interceptor to inject the token to requests
+axios.interceptors.request.use(request => {
+  request.headers['Authorization'] = `Bearer ${getAccessToken()}`;
+  return request;
+});

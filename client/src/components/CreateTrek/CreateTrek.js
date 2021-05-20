@@ -50,7 +50,7 @@ const CreateTrek = ({
                 </select>
             </div>
             <div className="form-label-group">
-                <input type="text" name="location" className="form-control" placeholder="Location" required="" autofocus="" />
+                <input type="text" name="location" className="form-control" placeholder="Location" required="" autoFocus="" />
             </div>
 
             <div className="form-label-group">
@@ -66,7 +66,7 @@ const CreateTrek = ({
             </div>
 
             <div className="form-label-group">
-                <input type="text" name="imageUrl" className="form-control" placeholder="Image" required="" autofocus="" />
+                <input type="text" name="imageUrl" className="form-control" placeholder="Image" required="" autoFocus="" />
             </div>
 
             <button className="btn btn-lg btn-dark btn-block" type="submit">Make a wish =)</button>

@@ -17,7 +17,7 @@ const Trek = ({
                         {categoryName}
                     </p>
                 </div>
-                <img className="card-image" src={imageUrl} alt="Card image cap"></img>
+                <img className="card-image" src={imageUrl} alt=""></img>
             </Link>
         </div>
     );

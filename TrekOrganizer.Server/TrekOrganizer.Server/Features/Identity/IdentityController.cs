@@ -72,7 +72,8 @@
 
             return new LoginResponseModel
             {
-                Token = token
+                Token = token,
+                User = user
             };
         }
 
