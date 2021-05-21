@@ -11,6 +11,7 @@ import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import DeleteTrek from './components/DeleteTrek/DeleteTrek';
+import About from './components/About/About';
 import axios from 'axios';
 
 import './App.css';
@@ -51,6 +52,7 @@ export default class App extends Component {
             <Route path="/edit/treks/:trekId" component={EditTrek} />
             <Route path="/delete/treks/:trekId" component={DeleteTrek} />
             <Route path="/create/treks" component={CreateTrek} />
+            <Route path="/about" component={About} />
           </Switch>
 
           <Footer />

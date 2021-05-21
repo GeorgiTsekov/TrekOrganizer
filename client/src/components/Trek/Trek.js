@@ -1,5 +1,5 @@
 import './Trek.css';
-import { Link}  from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Trek = ({
     location,
@@ -13,7 +13,8 @@ const Trek = ({
                 <div className="card-body">
                     <p className="card-text">
                         {location}
-                    </p><p className="card-text">
+                    </p>
+                    <p className="card-text">
                         {categoryName}
                     </p>
                 </div>

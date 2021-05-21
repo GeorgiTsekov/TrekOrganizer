@@ -70,10 +70,17 @@
                 user.UserName,
                 this.appSettings.Secret);
 
+            var userDetails = new UserDetailsServiceModel
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                Id = user.Id
+            };
+
             return new LoginResponseModel
             {
                 Token = token,
-                User = user
+                User = userDetails
             };
         }
 

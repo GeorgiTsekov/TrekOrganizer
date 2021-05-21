@@ -7,6 +7,6 @@ namespace TrekOrganizer.Server.Features.Identity.Models
     {
         public string Token { get; set; }
 
-        public User User { get; set; }
+        public UserDetailsServiceModel User { get; set; }
     }   
 }
