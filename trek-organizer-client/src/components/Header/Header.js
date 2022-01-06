@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 const Header = () => {
     return (
-        <section className="header">
+        <section className="header" id="header">
             <div className="navbar-option">
                 <div className="container">
                     <nav className="navbar navbar-default">
@@ -10,46 +12,25 @@ const Header = () => {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <a className="navbar-brand" href="index.html"><img src="/images/logo.png" alt="" /></a>
+                            <Link className="navbar-brand" to="/"><img src="/images/logo.png" alt="" /></Link>
                         </div>
                         <div className="collapse navbar-collapse" id="myNavbar">
                             <ul className="nav navbar-nav navbar-left">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="/trails">Trails</Link></li>
+                                <li><Link to="/about">About</Link></li>
+                                <li><Link to="/trek/all">Blog</Link></li>
+                                <li><Link to="/gallery">Gallery</Link></li>
+                                <li><Link to="/contact">Contact</Link></li>
+                                <li><Link to="/login">Login</Link></li>
+                                <li><Link to="/register">Register</Link></li>
+                                <li><Link to="/logout">Logout</Link></li>
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div>
 
-
-
-            <section className="banner">
-                <div className="container">
-                    <div className="banner-content">
-                        <div className="owl-carousel owl-theme">
-                            <div className="item">
-                                <h1>Be <span>Faster</span></h1>
-                                <p>Live Life to the Fullest</p>
-                            </div>
-                            <div className="item">
-                                <h1>Be <span>Faster</span></h1>
-                                <p>Live Life to the Fullest</p>
-
-                            </div>
-                            <div className="item">
-                                <h1>Be <span>Faster</span></h1>
-                                <p>Live Life to the Fullest</p>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
         </section>
     )
 }
