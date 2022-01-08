@@ -5,7 +5,7 @@ namespace TrekOrganizer.Server.Features.Identity
 {
     public interface IIdentityService
     {
-        string GenerateJwtToken(string userId, string userName, string secret);
+        string GenerateJwtToken(string userId, string email, string secret);
 
         public Task<UserDetailsServiceModel> UserDetails(string id);
     }

@@ -19,7 +19,7 @@
             return this.user?.GetId();
         }
 
-        public string GetUserName()
+        public string GetEmail()
         {
             return this.user?.Identity?.Name;
         }

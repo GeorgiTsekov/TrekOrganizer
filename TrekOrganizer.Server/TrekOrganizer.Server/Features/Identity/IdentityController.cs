@@ -53,7 +53,7 @@
         [Route(nameof(Login))]
         public async Task<ActionResult<LoginResponseModel>> Login(LoginRequestModel model)
         {
-            var user = await this.userManager.FindByNameAsync(model.UserName);
+            var user = await this.userManager.FindByNameAsync(model.Email);
             if (user == null)
             {
                 return Unauthorized();
@@ -67,7 +67,7 @@
 
             var token = this.identity.GenerateJwtToken(
                 user.Id,
-                user.UserName,
+                user.Email,
                 this.appSettings.Secret);
 
             var userDetails = new UserDetailsServiceModel
