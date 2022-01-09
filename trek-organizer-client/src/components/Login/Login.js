@@ -1,27 +1,47 @@
+import { useNavigate } from "react-router";
+
+import { useAuthContext } from "../../contexts/AuthContext";
+import { useNotificationContext, types } from "../../contexts/NotificationContext";
+import * as authService from '../../services/authService';
+
 const Login = () => {
+    const { login } = useAuthContext();
+    const { addNotification } = useNotificationContext();
+    const navigate = useNavigate();
+
+    const onLoginHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+
+        let userName = formData.get('userName');
+        let password = formData.get('password');
+
+        authService.login({ userName, password })
+            .then((authData) => {
+                login(authData);
+                addNotification('You logged in successfully!', types.success);
+                navigate('/trek/all');
+            })
+            .catch(err => {
+                console.log(err);
+                addNotification(err.title, types.error)
+            })
+    }
     return (
         <section className="contact-form">
             <div className="container">
                 <div className="contact-heading">
-                    <h1>Contact Us</h1>
-                    <h3>You can send your feedback or report any issues by submitting the form.</h3>
+                    <h1>Login</h1>
+                    <h3>You can login with your accound here.</h3>
                 </div>
-                <form id="contact" action="" method="post">
+                <form id="contact" onSubmit={onLoginHandler} method="POST">
                     <h3>Leave your query here</h3>
                     <fieldset>
-                        <input placeholder="Your name" type="text" tabindex="1" required autofocus />
+                        <input placeholder="Your Username" name="userName" type="text" />
                     </fieldset>
                     <fieldset>
-                        <input placeholder="Your Email Address" type="email" tabindex="2" required />
-                    </fieldset>
-                    <fieldset>
-                        <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required />
-                    </fieldset>
-                    <fieldset>
-                        <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required />
-                    </fieldset>
-                    <fieldset>
-                        <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+                        <input placeholder="Your Password" name="password" type="password" />
                     </fieldset>
                     <fieldset>
                         <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
