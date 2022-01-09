@@ -107,14 +107,14 @@
                 .ToList()
                 .ForEach(entry =>
                 {
-                    var email = this.currentUser.GetEmail();
+                    var userName = this.currentUser.GetUserName();
 
                     if (entry.Entity is IDeletableEntity deletableEntity)
                     {
                         if (entry.State == EntityState.Deleted)
                         {
                             deletableEntity.DeletedOn = DateTime.UtcNow;
-                            deletableEntity.DeletedBy = email;
+                            deletableEntity.DeletedBy = userName;
                             deletableEntity.IsDeleted = true;
 
                             entry.State = EntityState.Modified;
@@ -128,12 +128,12 @@
                         if (entry.State == EntityState.Added)
                         {
                             entity.CreatedOn = DateTime.UtcNow;
-                            entity.CreatedBy = email;
+                            entity.CreatedBy = userName;
                         }
                         else if (entry.State == EntityState.Modified)
                         {
                             entity.ModifiedOn = DateTime.UtcNow;
-                            entity.ModifiedBy = email;
+                            entity.ModifiedBy = userName;
                         }
                     }
                 });
