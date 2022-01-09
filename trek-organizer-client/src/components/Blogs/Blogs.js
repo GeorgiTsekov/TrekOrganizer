@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Blogs = () => {
   return (
     <section className="blog_wrapper">
@@ -22,14 +24,14 @@ const Blogs = () => {
                   <p>Eaque ipsa quae ab illo inventore veritatis et quasi. Eaque ipsa quae ab illo inventore veritatis et quasi. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti </p>
                   <div className="catageory">
                     <ul>
-                      <li><a href="">MAY 28, 2015</a></li>
-                      <li><a href="">By Admin</a></li>
-                      <li><a href="">3 Comments</a></li>
+                      <li><Link to="">MAY 28, 2015</Link></li>
+                      <li><Link to="">By Admin</Link></li>
+                      <li><Link to="">3 Comments</Link></li>
                     </ul>
                     <div className="clearfix"></div>
                   </div>
 
-                  <a href="single-post.html" className="read_more">Read More</a>
+                  <Link to="single-post.html" className="read_more">Read More</Link>
                 </div>
               </div>
               <div className="clearfix"></div>
@@ -47,14 +49,14 @@ const Blogs = () => {
                   <p>Eaque ipsa quae ab illo inventore veritatis et quasi. Eaque ipsa quae ab illo inventore veritatis et quasi. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti </p>
                   <div className="catageory">
                     <ul>
-                      <li><a href="">MAY 28, 2015</a></li>
-                      <li><a href="">By Admin</a></li>
-                      <li><a href="">3 Comments</a></li>
+                      <li><Link to="">MAY 28, 2015</Link></li>
+                      <li><Link to="">By Admin</Link></li>
+                      <li><Link to="">3 Comments</Link></li>
                     </ul>
                     <div className="clearfix"></div>
                   </div>
 
-                  <a href="single-post.html" className="read_more">Read More</a>
+                  <Link to="single-post.html" className="read_more">Read More</Link>
 
                 </div>
               </div>
@@ -73,27 +75,27 @@ const Blogs = () => {
                   <p>Eaque ipsa quae ab illo inventore veritatis et quasi. Eaque ipsa quae ab illo inventore veritatis et quasi. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti </p>
                   <div className="catageory">
                     <ul>
-                      <li><a href="">MAY 28, 2015</a></li>
-                      <li><a href="">By Admin</a></li>
-                      <li><a href="">3 Comments</a></li>
+                      <li><Link to="">MAY 28, 2015</Link></li>
+                      <li><Link to="">By Admin</Link></li>
+                      <li><Link to="">3 Comments</Link></li>
                     </ul>
                     <div className="clearfix"></div>
                   </div>
 
-                  <a href="single-post.html" className="read_more">Read More</a>
+                  <Link to="single-post.html" className="read_more">Read More</Link>
                 </div>
               </div>
               <div className="clearfix"></div>
             </div>
             <div className="pagination-container text-center">
               <ul className="pagination">
-                <li className="previous"><a href="#">Previous</a></li>
-                <li><a href="#">1</a></li>
-                <li className="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li className="next"><a href="#">Next</a></li>
+                <li className="previous"><Link to="#">Previous</Link></li>
+                <li><Link to="#">1</Link></li>
+                <li className="active"><Link to="#">2</Link></li>
+                <li><Link to="#">3</Link></li>
+                <li><Link to="#">4</Link></li>
+                <li><Link to="#">5</Link></li>
+                <li className="next"><Link to="#">Next</Link></li>
               </ul>
             </div>
           </div>
@@ -110,10 +112,10 @@ const Blogs = () => {
                 <h2 className="heading">Category</h2>
 
                 <ul>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
                 </ul>
 
               </div>
@@ -123,10 +125,10 @@ const Blogs = () => {
                 <h2 className="heading">Archive</h2>
 
                 <ul>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
                 </ul>
 
               </div>
@@ -136,10 +138,10 @@ const Blogs = () => {
                 <h2 className="heading">Recent Post</h2>
 
                 <ul>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
-                  <li><a href="">Travel</a></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
+                  <li><Link to="">Travel</Link></li>
                 </ul>
 
               </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Trails = () => {
     return (
         <section className="trails">
@@ -14,9 +16,9 @@ const Trails = () => {
                                 <div className="panel panel-default">
                                     <div className="panel-heading" role="tab" id="headingOne">
                                         <h4 className="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <Link role="button" data-toggle="collapse" data-parent="#accordion" to="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 Section 1
-                                            </a>
+                                            </Link>
                                         </h4>
                                     </div>
                                     <div id="collapseOne" className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -31,9 +33,9 @@ const Trails = () => {
                                     <div className="panel panel-default">
                                         <div className="panel-heading" role="tab" id="headingTwo">
                                             <h4 className="panel-title">
-                                                <a className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                <Link className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" to="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                     Section 2
-                                                </a>
+                                                </Link>
                                             </h4>
                                         </div>
                                         <div id="collapseTwo" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -48,9 +50,9 @@ const Trails = () => {
                                         <div className="panel panel-default">
                                             <div className="panel-heading" role="tab" id="headingThree">
                                                 <h4 className="panel-title">
-                                                    <a className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <Link className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" to="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                         Section 3
-                                                    </a>
+                                                    </Link>
                                                 </h4>
                                             </div>
                                             <div id="collapseThree" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -65,9 +67,9 @@ const Trails = () => {
                                             <div className="panel panel-default">
                                                 <div className="panel-heading" role="tab" id="headingFour">
                                                     <h4 className="panel-title">
-                                                        <a className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                                                        <Link className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" to="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
                                                             Section 4
-                                                        </a>
+                                                        </Link>
                                                     </h4>
                                                 </div>
                                             </div>

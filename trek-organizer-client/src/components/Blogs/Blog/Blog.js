@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Blog = () => {
     return (
         <section className="blog_wrapper">
@@ -20,9 +22,9 @@ const Blog = () => {
                                     <p>Eaque ipsa quae ab illo inventore veritatis et quasi. Eaque ipsa quae ab illo inventore veritatis et quasi. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti </p>
                                     <div className="catageory">
                                         <ul>
-                                            <li><a href="">MAY 28, 2015</a></li>
-                                            <li><a href="">By Admin</a></li>
-                                            <li><a href="">3 Comments</a></li>
+                                            <li><Link to="">MAY 28, 2015</Link></li>
+                                            <li><Link to="">By Admin</Link></li>
+                                            <li><Link to="">3 Comments</Link></li>
                                         </ul>
                                         <div className="clearfix"></div>
                                     </div>
@@ -33,7 +35,7 @@ const Blog = () => {
 
                         <div className="author_block">
                             <h2>About Author</h2>
-                            <div className="col-md-2 col-sm-2 "> <img src="/images/blog/auther_img.png" /></div>
+                            <div className="col-md-2 col-sm-2 "> <img src="/images/blog/Linkuther_img.png" alt="" /></div>
                             <div className="col-md-10 col-sm-10 no-padding">
                                 <h3>Author</h3>
                                 <span>Web Designer</span>
@@ -45,19 +47,19 @@ const Blog = () => {
                         <div className="related_post">
                             <h2>Related Post</h2>
                             <div className="col-md-4 col-sm-4">
-                                <img src="/images/blog/related+post.jpg" />
+                                <img src="/images/blog/related+post.jpg" alt="" />
                                 <h3>heading goes here</h3>
-                                <a href=""><i className="fa fa-comments"></i> comments </a>
+                                <Link to=""><i className="fa fa-comments"></i> comments </Link>
                             </div>
                             <div className="col-md-4 col-sm-4">
-                                <img src="/images/blog/related+post.jpg" />
+                                <img src="/images/blog/related+post.jpg" alt="" />
                                 <h3>heading goes here</h3>
-                                <a href=""><i className="fa fa-comments"></i> comments </a>
+                                <Link to=""><i className="fa fa-comments"></i> comments </Link>
                             </div>
                             <div className="col-md-4 col-sm-4">
-                                <img src="/images/blog/related+post.jpg" />
+                                <img src="/images/blog/related+post.jpg" alt="" />
                                 <h3>heading goes here</h3>
-                                <a href=""><i className="fa fa-comments"></i> comments </a>
+                                <Link to=""><i className="fa fa-comments"></i> comments </Link>
                             </div>
                             <div className="clearfix"></div>
                         </div>
@@ -68,7 +70,7 @@ const Blog = () => {
 
                             <div className="comment_block">
                                 <div className="col-md-10 col-sm-10">
-                                    <div className=" col-md-2 col-sm-2"><img src="/images/blog/comment_img.jpg" /></div>
+                                    <div className=" col-md-2 col-sm-2"><img src="/images/blog/comment_img.jpg" alt="" /></div>
                                     <div className="col-md-10 col-sm-10 no-padding">
                                         <h3>Jon Doe</h3>
                                         <span>25 DEC 2015 12.35 AM</span>
@@ -76,13 +78,13 @@ const Blog = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-md-2 col-sm-2"><a href="" className="readmore">Reply</a></div>
+                                <div className="col-md-2 col-sm-2"><Link to="" className="readmore">Reply</Link></div>
                                 <div className="clearfix"></div>
                             </div>
 
                             <div className="comment_block col-md-offset-1">
                                 <div className="col-md-10 col-sm-10">
-                                    <div className=" col-md-2 col-sm-2"><img src="/images/blog/comment_img.jpg"/></div>
+                                    <div className=" col-md-2 col-sm-2"><img src="/images/blog/comment_img.jpg" alt="" /></div>
                                     <div className="col-md-10 col-sm-10 no-padding">
                                         <h3>Jon Doe</h3>
                                         <span>25 DEC 2015 12.35 AM</span>
@@ -90,14 +92,14 @@ const Blog = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-md-2 col-sm-2"><a href="" className="readmore">Reply</a></div>
+                                <div className="col-md-2 col-sm-2"><Link to="" className="readmore">Reply</Link></div>
                                 <div className="clearfix"></div>
                             </div>
 
 
                             <div className="comment_block">
                                 <div className="col-md-10 col-sm-10">
-                                    <div className=" col-md-2 col-sm-2"><img src="/images/blog/comment_img.jpg" /></div>
+                                    <div className=" col-md-2 col-sm-2"><img src="/images/blog/comment_img.jpg" alt="" /></div>
                                     <div className="col-md-10 col-sm-10 no-padding">
                                         <h3>Jon Doe</h3>
                                         <span>25 DEC 2015 12.35 AM</span>
@@ -105,7 +107,7 @@ const Blog = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-md-2 col-sm-2"><a href="" className="readmore">Reply</a></div>
+                                <div className="col-md-2 col-sm-2"><Link to="" className="readmore">Reply</Link></div>
                                 <div className="clearfix"></div>
                             </div>
 
@@ -147,10 +149,10 @@ const Blog = () => {
                                 <h2 className="heading">Catageory</h2>
 
                                 <ul>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
                                 </ul>
 
                             </div>
@@ -160,10 +162,10 @@ const Blog = () => {
                                 <h2 className="heading">Archive</h2>
 
                                 <ul>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
                                 </ul>
 
                             </div>
@@ -173,10 +175,10 @@ const Blog = () => {
                                 <h2 className="heading">Recent Post</h2>
 
                                 <ul>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
-                                    <li><a href="">Travel</a></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
+                                    <li><Link to="">Travel</Link></li>
                                 </ul>
 
                             </div>

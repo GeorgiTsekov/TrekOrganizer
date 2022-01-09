@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Gallery = () => {
   return (
     <section className="gallery">
@@ -11,19 +13,19 @@ const Gallery = () => {
         <div id="images">
           <div className="row">
             <div className="col-md-4">
-              <a href="/images/banner.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner.jpg" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
-              <a href="/images/banner.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner.jpg" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
-              <a href="/images/banner.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner.jpg" alt="" />
-              </a>
+              </Link>
 
 
             </div>
@@ -32,19 +34,19 @@ const Gallery = () => {
         <div id="images">
           <div className="row">
             <div className="col-md-4">
-              <a href="/images/banner-2.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner-2.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner-2.jpg" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
-              <a href="/images/banner-2.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner-2.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner-2.jpg" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
-              <a href="/images/banner-2.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner-2.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner-2.jpg" alt="" />
-              </a>
+              </Link>
 
 
             </div>
@@ -53,19 +55,19 @@ const Gallery = () => {
         <div id="images">
           <div className="row">
             <div className="col-md-4">
-              <a href="/images/banner.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner.jpg" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
-              <a href="/images/banner.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner.jpg" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
-              <a href="/images/banner.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner.jpg" alt="" />
-              </a>
+              </Link>
 
 
             </div>
@@ -74,19 +76,19 @@ const Gallery = () => {
         <div id="images">
           <div className="row">
             <div className="col-md-4">
-              <a href="/images/banner-2.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner-2.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner-2.jpg" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
-              <a href="/images/banner-2.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner-2.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner-2.jpg" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-4">
-              <a href="/images/banner-2.jpg" data-fancybox data-caption="My caption">
+              <Link to="/images/banner-2.jpg" data-fancybox data-caption="My caption">
                 <img src="/images/banner-2.jpg" alt="" />
-              </a>
+              </Link>
 
 
             </div>

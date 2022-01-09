@@ -9,19 +9,19 @@ const Contacts = () => {
                 <form id="contact" action="" method="post">
                     <h3>Leave your query here</h3>
                     <fieldset>
-                        <input placeholder="Your name" type="text" tabindex="1" required autofocus />
+                        <input placeholder="Your name" type="text" />
                     </fieldset>
                     <fieldset>
-                        <input placeholder="Your Email Address" type="email" tabindex="2" required />
+                        <input placeholder="Your Email Address" type="email" />
                     </fieldset>
                     <fieldset>
-                        <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required />
+                        <input placeholder="Your Phone Number (optional)" type="tel" />
                     </fieldset>
                     <fieldset>
-                        <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required />
+                        <input placeholder="Your Web Site (optional)" type="url" />
                     </fieldset>
                     <fieldset>
-                        <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+                        <textarea placeholder="Type your message here...."></textarea>
                     </fieldset>
                     <fieldset>
                         <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>

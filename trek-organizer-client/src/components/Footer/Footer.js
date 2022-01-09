@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Footer = () => {
     return (
         <section className="footer">
@@ -50,19 +52,19 @@ const Footer = () => {
                     </div>
                     <div className="social-icons">
                       <ul>
-                        <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i>
+                        <li><Link to="#"><i className="fa fa-facebook" aria-hidden="true"></i>
 
-                          FACEBOOK</a></li>
-                        <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i>
+                          FACEBOOK</Link></li>
+                        <li><Link to="#"><i className="fa fa-twitter" aria-hidden="true"></i>
 
-                          TWITTER</a></li>
-                        <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i>
+                          TWITTER</Link></li>
+                        <li><Link to="#"><i className="fa fa-linkedin" aria-hidden="true"></i>
 
-                          LINKEDIN</a></li>
+                          LINKEDIN</Link></li>
                       </ul>
                     </div>
                     <p className="copyright">
-                      Copyright 2018. Designed by NavThemes | Distributed by <a href="https://themewagon.com/">ThemeWagon</a>
+                      Copyright 2018. Designed by NavThemes | Distributed by <Link to="https://themewagon.com/">ThemeWagon</Link>
                     </p>
                   </div>
                 </div>
