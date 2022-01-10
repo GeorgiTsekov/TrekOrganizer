@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/AuthContext'
 import About from "./components/About/About";
-// import Blog from "./components/Blogs/Blog/Blog";
-import Blogs from "./components/Blogs/Blogs";
+import Details from "./components/Treks/Details/Details";
+import Treks from "./components/Treks/Treks";
 import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
 import Gallery from "./components/Gallery/Gallery";
@@ -15,6 +15,8 @@ import Trails from "./components/Trails/Trails";
 import Logout from './components/Logout/Logout';
 import { NotificationProvider } from './contexts/NotificationContext';
 import Notification from './components/Common/Notification/Notification';
+import NotPrivedRoute from './components/Common/GuardedRoutes/NotPrivedRoute';
+import PrivateRoute from './components/Common/GuardedRoutes/PrivateRoute';
 
 function App() {
   return (
@@ -27,13 +29,18 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/trails" element={<Trails />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route element={<NotPrivedRoute />}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </Route>
               <Route path="/contact" element={<Contacts />} />
-              <Route path="/trek/all" element={<Blogs />} />
+              <Route path="/treks/all" element={<Treks />} />
+              <Route path="/treks/:trekId" element={<Details />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/about" element={<About />} />
-              <Route path="/logout" element={<Logout />} />
+              <Route element={<PrivateRoute />}>
+                <Route path="/logout" element={<Logout />} />
+              </Route>
             </Routes>
           </main>
           <Footer />

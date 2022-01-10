@@ -20,7 +20,6 @@ const Header = () => {
     )
     return (
         <section className="header" id="header">
-            <div className="navbar-option">
                 <div className="container">
                     <nav className="navbar navbar-default">
                         <div className="navbar-header">
@@ -34,16 +33,13 @@ const Header = () => {
                         <div className="collapse navbar-collapse" id="myNavbar">
                             <ul className="nav navbar-nav navbar-left">
                                 <li><Link to="/">Home</Link></li>
-                                <li><Link to="/trails">Trails</Link></li>
                                 <li><Link to="/about">About</Link></li>
-                                <li><Link to="/trek/all">Blog</Link></li>
-                                <li><Link to="/gallery">Gallery</Link></li>
+                                <li><Link to="/treks/all">Treks</Link></li>
                                 <li><Link to="/contact">Contact</Link></li>
                             </ul>
                             {isAuthenticated ? userNavigation : guestNavigation}
                         </div>
                     </nav>
-                </div>
             </div>
 
         </section>
