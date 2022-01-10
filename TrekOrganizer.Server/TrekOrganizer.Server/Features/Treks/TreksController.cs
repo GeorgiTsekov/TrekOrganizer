@@ -28,13 +28,12 @@
             return await this.treks.ByCategory(categoryName);
         }
 
+        [AllowAnonymous]
         [HttpGet]
         [Route(Id)]
         public async Task<TrekDetailsServiceModel> Details(int id)
         {
-            var userId = this.currentUser.GetId();
-
-            var trek = await this.treks.Details(id, userId);
+            var trek = await this.treks.Details(id);
 
             return trek;
         }

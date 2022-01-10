@@ -18,7 +18,7 @@
 
         Task<IEnumerable<TrekListingServiceModel>> ByCategory(string categoryName);
 
-        Task<TrekDetailsServiceModel> Details(int id, string userId);
+        Task<TrekDetailsServiceModel> Details(int id);
 
         Task<Result> Edit(
             int id,

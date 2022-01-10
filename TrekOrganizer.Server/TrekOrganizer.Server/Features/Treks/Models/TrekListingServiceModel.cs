@@ -7,6 +7,17 @@
         public int Id { get; set; }
 
         [Required]
+        public string StartDate { get; set; }
+
+        [Required]
+        public string EndDate { get; set; }
+
+        public int Likes { get; set; }
+
+        [Required]
+        public string OrganizerName { get; set; }
+
+        [Required]
         [MaxLength(50)]
         public string Location { get; set; }
 

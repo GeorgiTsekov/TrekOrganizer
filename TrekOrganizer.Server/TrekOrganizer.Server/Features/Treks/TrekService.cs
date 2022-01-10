@@ -51,7 +51,11 @@
                     Id = t.Id,
                     Location = t.Location,
                     CategoryName = t.Category.Name,
-                    ImageUrl = t.ImageUrl
+                    ImageUrl = t.ImageUrl,
+                    OrganizerName = t.CreatedBy,
+                    StartDate = t.StartDate,
+                    EndDate = t.EndDate,
+                    Likes = t.Likes
                 })
                 .ToListAsync();
 
@@ -69,7 +73,11 @@
                         Id = t.Id,
                         Location = t.Location,
                         CategoryName = t.Category.Name,
-                        ImageUrl = t.ImageUrl
+                        ImageUrl = t.ImageUrl,
+                        OrganizerName = t.CreatedBy,
+                        StartDate = t.StartDate,
+                        EndDate = t.EndDate,
+                        Likes = t.Likes
                     })
                     .ToListAsync();
 
@@ -77,7 +85,7 @@
             }
         }
 
-        public async Task<TrekDetailsServiceModel> Details(int id, string userId)
+        public async Task<TrekDetailsServiceModel> Details(int id)
         {
             var trek = this.data
                 .Treks
@@ -85,7 +93,6 @@
                 .Select(t => new TrekDetailsServiceModel
                 {
                     Id = t.Id,
-                    UserId = userId,
                     Location = t.Location,
                     CategoryName = t.Category.Name,
                     ImageUrl = t.ImageUrl,
