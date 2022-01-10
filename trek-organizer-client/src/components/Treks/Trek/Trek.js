@@ -19,6 +19,7 @@ const Trek = (
                                 <li><Link to="#">StartDate: {trek.startDate}</Link></li>
                                 <li><Link to="#">EndDate: {trek.endDate}</Link></li>
                                 <li><Link to="#">Organizer: {trek.organizerName}</Link></li>
+                                <li><Link to="#">Likes: {trek.likes}</Link></li>
                                 {/* <li><Link to="#">3 Comments</Link></li> */}
                             </ul>
                             <div className="clearfix"></div>

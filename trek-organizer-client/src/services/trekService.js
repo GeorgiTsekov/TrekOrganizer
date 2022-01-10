@@ -13,14 +13,14 @@ export const deleteSavedTrip = (carId, tripId) => request.deleteTrek(`${baseUrl}
 
 export const available = async (carData) => request.post(`${baseUrl}/available`, carData);
 
-export const getOne = async (carId) => request.get(`${baseUrl}/${carId}`);
+export const getOne = async (trekId) => request.get(`${baseUrl}/${trekId}`);
 
-export const create = async (carData) => request.post(`${baseUrl}/create`, carData);
+export const create = async (trekData) => request.post(`${baseUrl}/create`, trekData);
 
-export const likes = async (carId) => request.patch(`${baseUrl}/${carId}/like`);
+export const likes = async (trekId) => request.put(`${baseUrl}/${trekId}/like`);
 
 export const rent = async (carData, carId) => request.patch(`${baseUrl}/${carId}/addTenant`, carData);
 
-export const edit = async (carData, carId) => request.patch(`${baseUrl}/${carId}/edit`, carData);
+export const edit = async (trekData, trekId) => request.put(`${baseUrl}/${trekId}/edit`, trekData);
 
-export const deleteTrek = async (carId) => request.deleteTrek(`${baseUrl}/${carId}/delete`);
+export const deleteTrek = async (trekId) => request.deleteTrek(`${baseUrl}/${trekId}`);

@@ -21,16 +21,12 @@ export const request = async (method, url, data) => {
         })
     }
 
-    console.log(result)
     return result
         .then(responseHandler)
 }
 
 async function responseHandler(res) {
-    console.log(res)
     let jsonData = await res.json();
-    console.log(jsonData)
-
     if (res.ok) {
         return jsonData;
     } else {
@@ -57,4 +53,5 @@ function getToken() {
 export const deleteTrek = request.bind(null, 'DELETE');
 export const get = request.bind(null, 'GET');
 export const patch = request.bind(null, 'PATCH');
+export const put = request.bind(null, 'PUT');
 export const post = request.bind(null, 'POST');
