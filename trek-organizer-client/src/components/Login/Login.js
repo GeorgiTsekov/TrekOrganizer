@@ -21,7 +21,7 @@ const Login = () => {
             .then((authData) => {
                 login(authData);
                 addNotification('You logged in successfully!', types.success);
-                navigate('/trek/all');
+                navigate('/treks/all');
             })
             .catch(err => {
                 console.log(err);

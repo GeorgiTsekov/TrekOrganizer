@@ -27,6 +27,7 @@ export const request = async (method, url, data) => {
 
 async function responseHandler(res) {
     let jsonData = await res.json();
+    
     if (res.ok) {
         return jsonData;
     } else {
@@ -44,7 +45,7 @@ function getToken() {
 
         let user = JSON.parse(userItem)
 
-        return user.accessToken;
+        return user.token;
     } catch (error) {
         console.log(error);
     }

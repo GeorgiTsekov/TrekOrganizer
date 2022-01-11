@@ -1,13 +1,11 @@
 import { useNavigate } from "react-router";
 
-import { useAuthContext } from "../../contexts/AuthContext";
 import { useNotificationContext, types } from "../../contexts/NotificationContext";
 import * as authService from '../../services/authService';
 import InputFormComponent from "../Common/InputFormComponent/InputFormComponent";
 import AuthValidations from "../Common/Validations/AuthValidations";
 
 const Register = () => {
-    const { login } = useAuthContext();
     const { addNotification } = useNotificationContext();
     const navigate = useNavigate();
     const {
