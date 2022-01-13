@@ -13,7 +13,7 @@ const Logout = () => {
         addNotification('You sign out successfully!', types.success);
         navigate('/')
             
-    }, [logout, navigate]);
+    }, [logout, navigate, addNotification]);
 
     return null;
 }

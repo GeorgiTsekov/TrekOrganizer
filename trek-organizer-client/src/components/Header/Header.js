@@ -15,6 +15,7 @@ const Header = () => {
     let userNavigation = (
         <ul className="nav navbar-nav navbar-left">
             <li><Link to="/profile">Welcome, {user.userName}</Link></li>
+            <li><Link to="/treks/create">Create Trek</Link></li>
             <li><Link to="/logout">Logout</Link></li>
         </ul>
     )

@@ -15,7 +15,7 @@ export const available = async (carData) => request.post(`${baseUrl}/available`,
 
 export const getOne = async (trekId) => request.get(`${baseUrl}/${trekId}`);
 
-export const create = async (trekData) => request.post(`${baseUrl}/create`, trekData);
+export const create = async (trekData) => request.post(`${baseUrl}`, trekData);
 
 export const likes = async (trekId) => {
     let result = fetch(`${baseUrl}/like/${trekId}`, {
@@ -41,7 +41,23 @@ export const rent = async (carData, carId) => request.patch(`${baseUrl}/${carId}
 
 export const edit = async (trekData, trekId) => request.put(`${baseUrl}/${trekId}/edit`, trekData);
 
-export const deleteTrek = async (trekId) => request.deleteTrek(`${baseUrl}/${trekId}`);
+export const deleteTrek = async (trekId) => {
+    fetch(`${baseUrl}/${trekId}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${getToken()}`
+        }
+    })
+        .then(res => {
+            if (res.ok) {
+                return res.ok
+            } else {
+                let jsonData = res.json();
+                throw jsonData;
+            }
+        });
+}
 
 function getToken() {
     try {
