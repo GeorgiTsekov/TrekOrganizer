@@ -18,6 +18,7 @@ import Notification from './components/Common/Notification/Notification';
 import NotPrivedRoute from './components/Common/GuardedRoutes/NotPrivedRoute';
 import PrivateRoute from './components/Common/GuardedRoutes/PrivateRoute';
 import Create from './components/Treks/Create/Create';
+import Edit from './components/Treks/Edit/Edit';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
               <Route element={<PrivateRoute />}>
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/treks/create" element={<Create />} />
+                <Route path="/treks/:trekId/edit" element={<Edit />} />
               </Route>
             </Routes>
           </main>

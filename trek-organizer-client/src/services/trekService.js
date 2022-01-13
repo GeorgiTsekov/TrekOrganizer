@@ -39,7 +39,26 @@ export const likes = async (trekId) => {
 
 export const rent = async (carData, carId) => request.patch(`${baseUrl}/${carId}/addTenant`, carData);
 
-export const edit = async (trekData, trekId) => request.put(`${baseUrl}/${trekId}/edit`, trekData);
+export const edit = async (trekData, trekId) => {
+    let result = fetch(`${baseUrl}/${trekId}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${getToken()}`
+        },
+        body: JSON.stringify(trekData)
+    })
+        .then(res => {
+            if (res.ok) {
+                return res.ok
+            } else {
+                let jsonData = res.json();
+                throw jsonData;
+            }
+        })
+
+    return result;
+}
 
 export const deleteTrek = async (trekId) => {
     fetch(`${baseUrl}/${trekId}`, {
