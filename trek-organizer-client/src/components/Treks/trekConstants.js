@@ -1,5 +1,4 @@
 export const trekCategories = [
-    { value: "All" },
     { value: "Hiking" },
     { value: "Walking" },
     { value: "Running" },
